@@ -1,7 +1,7 @@
 .header
 {
     color: white;
-    background: seagreen;
+    background: #009958;
     width: 100%;
 }
 
@@ -14,14 +14,17 @@
 .leftBlock
 {
     float:left;
-    background: lightgray;
-    width:  40%;
-    height: 80%;
+    background: #f0f0f1;
+    width:  24%;
+    height: 600px;
+    padding: 10px;
 }
 
 .leftBlock .fish li
 {
     display: block;
+    margin-left: 10px;
+    margin-top: 2px;
 }
 
 .mainContent
@@ -34,8 +37,19 @@
     padding: 0px;
 }
 
+.clear
+{
+    clear: both;
+}
+
 .footer
 {
-    margin-top: 50%;
     background: lightgray;
+}
+
+.image
+{
+    background: lightgrey;
+    width: 64px;
+    height: 64px;
 }
