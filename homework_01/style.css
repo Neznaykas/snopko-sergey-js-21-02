@@ -1,3 +1,13 @@
+*
+{
+    box-sizing: content-box;
+}
+
+body
+{
+    margin: 0px;
+}
+
 .header
 {
     color: white;
@@ -29,12 +39,55 @@
 
 .mainContent
 {
+    width: 72%;
     float: right;
+}
+
+.mainContent h2
+{
+    padding: 0px;
+    margin: 10px 0px;
+    font-size: 35px;
+}
+
+.banner
+{
+    margin-top: 25px;
+    width: 100%;
+}
+
+.banner .item
+{
+    width: 46%;
+    display: inline-block;
+    background: #f0f0f1;
+    margin: 0px;
+    padding: 10px 0px 0px 10px;
+}
+
+.banner .item p
+{
+    margin: 4px 10px 10px 0px;
+}
+
+.banner .item:last-child
+{
+  margin-left: 10px;
 }
 
 .mainContent h3
 {
     padding: 0px;
+    font-size: 25px;
+}
+
+.product {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.product:nth-child(3n) {
+    margin-right: 0;
 }
 
 .clear
@@ -44,12 +97,23 @@
 
 .footer
 {
-    background: lightgray;
+    background: #f0f0f1;
+    padding: 10px;
 }
 
 .image
 {
-    background: lightgrey;
+    background: #f0f0f1;
     width: 64px;
     height: 64px;
+}
+
+.left
+{
+    float: left;
+}
+
+.right
+{
+    float: right;
 }
