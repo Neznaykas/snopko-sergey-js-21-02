@@ -37,6 +37,11 @@ body
     margin-top: 2px;
 }
 
+.leftBlock .fish li label
+{
+    font-size: 15px;
+}
+
 .mainContent
 {
     width: 72%;
@@ -81,12 +86,53 @@ body
     font-size: 25px;
 }
 
-.product {
-    margin-right: 10px;
-    margin-bottom: 10px;
+.prodrybs
+{
+    width: 100%;
 }
 
-.product:nth-child(3n) {
+.ryb
+{
+    padding: 10px;
+    margin-right: 2%;
+    margin-bottom: 10px;
+    float: left;
+    background: #f0f0f1;
+    width: 29%;
+}
+
+.ryb .desc
+{
+    float: left;
+    margin-left: 10px;
+}
+
+.ryb .desc input
+{
+    background: #b2b2b2;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.ryb .desc .link
+{
+    margin-bottom: 17px;
+    font-size: 17px;
+}
+
+a
+{
+    color: dodgerblue;
+    font-size: inherit;
+}
+
+p
+{
+    color: #737373;
+}
+
+.ryb:nth-child(3n) {
     margin-right: 0;
 }
 
@@ -97,13 +143,15 @@ body
 
 .footer
 {
+    margin-top: 13px;
     background: #f0f0f1;
-    padding: 10px;
+    padding: 15px;
+    color: gray;
 }
 
 .image
 {
-    background: #f0f0f1;
+    background: #bbbbbb;
     width: 64px;
     height: 64px;
 }
