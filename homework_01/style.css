@@ -1,17 +1,167 @@
+*
+{
+    box-sizing: content-box;
+}
+
+body
+{
+    margin: 0px;
+}
+
 .header
 {
     color: white;
-    background: green;
+    background: #009958;
     width: 100%;
-    height: 60px;
+}
+
+.header h1
+{
+    font-size: 25px;
+    padding: 15px;
 }
 
 .leftBlock
 {
+    float:left;
+    background: #f0f0f1;
+    width:  24%;
+    height: 600px;
+    padding: 10px;
+}
 
+.leftBlock .fish li
+{
+    display: block;
+    margin-left: 10px;
+    margin-top: 2px;
+}
+
+.leftBlock .fish li label
+{
+    font-size: 15px;
 }
 
 .mainContent
 {
+    width: 72%;
+    float: right;
+}
 
+.mainContent h2
+{
+    padding: 0px;
+    margin: 10px 0px;
+    font-size: 35px;
+}
+
+.banner
+{
+    margin-top: 25px;
+    width: 100%;
+}
+
+.banner .item
+{
+    width: 46%;
+    display: inline-block;
+    background: #f0f0f1;
+    margin: 0px;
+    padding: 10px 0px 0px 10px;
+}
+
+.banner .item p
+{
+    margin: 4px 10px 10px 0px;
+}
+
+.banner .item:last-child
+{
+  margin-left: 10px;
+}
+
+.mainContent h3
+{
+    padding: 0px;
+    font-size: 25px;
+}
+
+.prodrybs
+{
+    width: 100%;
+}
+
+.ryb
+{
+    padding: 10px;
+    margin-right: 2%;
+    margin-bottom: 10px;
+    float: left;
+    background: #f0f0f1;
+    width: 29%;
+}
+
+.ryb .desc
+{
+    float: left;
+    margin-left: 10px;
+}
+
+.ryb .desc input
+{
+    background: #b2b2b2;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.ryb .desc .link
+{
+    margin-bottom: 17px;
+    font-size: 17px;
+}
+
+a
+{
+    color: dodgerblue;
+    font-size: inherit;
+}
+
+p
+{
+    color: #737373;
+}
+
+.ryb:nth-child(3n) {
+    margin-right: 0;
+}
+
+.clear
+{
+    clear: both;
+}
+
+.footer
+{
+    margin-top: 13px;
+    background: #f0f0f1;
+    padding: 15px;
+    color: gray;
+}
+
+.image
+{
+    background: #bbbbbb;
+    width: 64px;
+    height: 64px;
+}
+
+.left
+{
+    float: left;
+}
+
+.right
+{
+    float: right;
 }
