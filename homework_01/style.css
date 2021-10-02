@@ -42,6 +42,12 @@ body
     margin-top: 2px;
 }
 
+ol
+{
+    margin: 0px;
+    padding: 0px;
+}
+
 .fish li label
 {
     font-size: 15px;
@@ -49,8 +55,7 @@ body
 
 .container-main
 {
-    width: 72%;
-    float: right;
+    width: 75%;
 }
 
 .container-main h2
@@ -64,6 +69,7 @@ body
 {
     margin-top: 25px;
     width: 100%;
+    display: flex;
 }
 
 .banner .item
@@ -94,6 +100,8 @@ body
 .prodrybs
 {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .ryb
@@ -101,14 +109,13 @@ body
     padding: 10px;
     margin-right: 2%;
     margin-bottom: 10px;
-    float: left;
     background: #f0f0f1;
-    width: 29%;
+    width: 28%;
+    display: flex;
 }
 
 .ryb .desc
 {
-    float: left;
     margin-left: 10px;
 }
 
@@ -137,8 +144,11 @@ p
     color: #737373;
 }
 
-.ryb:nth-child(3n) {
-    margin-right: 0;
+.image
+{
+    background: #bbbbbb;
+    width: 64px;
+    height: 64px;
 }
 
 .footer
@@ -150,24 +160,7 @@ p
     display: flex;
 }
 
-.image
+.footer__item_contact
 {
-    background: #bbbbbb;
-    width: 64px;
-    height: 64px;
+    width: 80%;
 }
-
-/*.clear
-{
-    clear: both;
-}
-
-.left
-{
-    float: left;
-}
-
-.right
-{
-    float: right;
-}*/
