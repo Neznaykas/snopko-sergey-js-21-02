@@ -8,6 +8,12 @@ body
     margin: 0px;
 }
 
+.container
+{
+    width: 100%;
+    display: flex;
+}
+
 .header
 {
     color: white;
@@ -23,32 +29,31 @@ body
 
 .leftBlock
 {
-    float:left;
     background: #f0f0f1;
     width:  24%;
     height: 600px;
     padding: 10px;
 }
 
-.leftBlock .fish li
+.fish li
 {
     display: block;
     margin-left: 10px;
     margin-top: 2px;
 }
 
-.leftBlock .fish li label
+.fish li label
 {
     font-size: 15px;
 }
 
-.mainContent
+.container-main
 {
     width: 72%;
     float: right;
 }
 
-.mainContent h2
+.container-main h2
 {
     padding: 0px;
     margin: 10px 0px;
@@ -136,17 +141,13 @@ p
     margin-right: 0;
 }
 
-.clear
-{
-    clear: both;
-}
-
 .footer
 {
     margin-top: 13px;
     background: #f0f0f1;
     padding: 15px;
     color: gray;
+    display: flex;
 }
 
 .image
@@ -154,6 +155,11 @@ p
     background: #bbbbbb;
     width: 64px;
     height: 64px;
+}
+
+/*.clear
+{
+    clear: both;
 }
 
 .left
@@ -164,4 +170,4 @@ p
 .right
 {
     float: right;
-}
+}*/
