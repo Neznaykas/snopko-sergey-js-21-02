@@ -4,73 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dark.css">
     <title>Домашка</title>
 </head>
 <body>
+
+<div class="main">
 
 <div class="header">
     <h1>Интернет магазин "Не только красивое"</h1>
 </div>
 
-<nav class="sidebar">
+<aside class="sidebar">
     <b>Морская рыба</b>
-    <aside>
+    <div class="sidebar__item">
         <input type="checkbox" id="shark">
         <label for="shark">Акула</label>
-    </aside>
-    <aside>
+    </div>
+    <div class="sidebar__item">
         <input type="checkbox" id="perch">
         <label for="perch">Окунь</label>
-    </aside>
-    <aside>
+    </div>
+    <div class="sidebar__item">
         <input type="checkbox" id="turbot">
         <label for="turbot">Палтус</label>
-    </aside>
-    <aside>
+    </div>
+
+    <div class="sidebar__item">
         <input type="checkbox" id="cod">
         <label for="cod">Треска</label>
-    </aside>
+    </div>
     <b>Пресноводная рыба</b>
-    <aside>
+
+    <div class="sidebar__item">
         <input type="checkbox" id="fish1">
         <label for="fish1">Белоглазка</label>
-    </aside>
-    <aside>
+    </div>
+
+    <div class="sidebar__item">
         <input type="checkbox" id="fish2">
         <label for="fish2">Осётр</label>
-    </aside>
-    <aside>
+    </div>
+
+    <div class="sidebar__item">
         <input type="checkbox" id="fish3">
         <label for="fish3">Речной угорь</label>
-    </aside>
-    <aside>
+    </div>
+
+    <div class="sidebar__item">
         <input type="checkbox" id="fish4">
         <label for="fish4">Налим</label>
-    </aside>
-</nav>
+    </div>
+</aside>
 
 <div class="container">
-    <div class="container-main">
-        <article>
-            <h2>Рыбы на любой вкус</h2>
-            <b>Мы продаём рыбов, а не только показываем</b>
-        </article>
+    <article>
+        <h2>Рыбы на любой вкус</h2>
+        <b>Мы продаём рыбов, а не только показываем</b>
+    </article>
 
-        <div class="banner">
-            <div class="item">
+        <div class="container__banner">
+            <div class="container__banner__item">
                 <a href="#">Замороженные рыбы</a>
                 <p>Мы заморозили рыбов для вас</p>
             </div>
-            <div class="item">
+            <div class="container__banner__item">
                 <a href="#">Живые рыбы</a>
                 <p>На кухню или разведение</p>
             </div>
         </div>
 
         <h3>Популярные</h3>
-        <div class="prodrybs">
-            <div class="ryb">
-                <img class="image" alt="Рыба">
+        <div class="fishes">
+            <div class="fishes__item" >
+                <img class="fishes__item__image" alt="Рыба" src="fish.svg">
                 <div class="desc">
                     <div class="link">
                         <a href="#">Палтус</a>
@@ -79,8 +86,8 @@
                 </div>
             </div>
 
-            <div class="ryb">
-                <img class="image">
+            <div class="fishes__item">
+                <img class="fishes__item__image" src="fish.svg">
                 <div class="desc">
                     <div class="link">
                         <a href="#">Сёмга</a>
@@ -89,8 +96,8 @@
                 </div>
             </div>
 
-            <div class="ryb">
-                <img class="image">
+            <div class="fishes__item">
+                <img class="fishes__item__image" src="fish.svg">
                 <div class="desc">
                     <div class="link">
                         <a href="#">Сом</a>
@@ -99,8 +106,8 @@
                 </div>
             </div>
 
-            <div class="ryb">
-                <img class="image">
+            <div class="fishes__item">
+                <img class="fishes__item__image" src="fish.svg">
                 <div class="desc">
                     <div class="link">
                         <a href="#">Мойва</a>
@@ -109,8 +116,8 @@
                 </div>
             </div>
 
-            <div class="ryb">
-                <img class="image">
+            <div class="fishes__item">
+                <img class="fishes__item__image" src="fish.svg">
                 <div class="desc">
                     <div class="link">
                         <a href="#">Сельдь</a>
@@ -119,8 +126,8 @@
                 </div>
             </div>
 
-            <div class="ryb">
-                <img class="image">
+            <div class="fishes__item">
+                <img class="fishes__item__image" src="fish.svg">
                 <div class="desc">
                     <div class="link">
                         <a href="#">Тунец</a>
@@ -128,15 +135,15 @@
                         <input type="button" value="Купить">
                 </div>
             </div>
-            <div class="clear"></div>
         </div>
     </div>
 
-</div>
 
 <div class="footer">
     <div class="footer__item_contact">Контакты</div>
     <div class="footer__item">@2021 ИП Рыбов О.А.</div>
+</div>
+
 </div>
 
 </body>

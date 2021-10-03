@@ -1,20 +1,21 @@
-body
+.main
 {
     margin: 0;
     display: grid;
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: 250px 1fr;
     grid-template-areas:
             "header header header"
             "sidebar main main"
             "footer footer footer";
     grid-gap: 10px;
+   /* height: 100vh;
+    grid-template-rows: 60px 1fr 60px;*/
 }
 
 .container
 {
     grid-area: main;
     width: 100%;
-    display: flex;
 }
 
 .header
@@ -25,18 +26,12 @@ body
     width: 100%;
 }
 
-.container-main
-{
-    margin-left: 20px;
-}
-
 .sidebar
 {
     grid-area: sidebar;
     background: #f0f0f1;
-    width:  240px;
-    height: 600px;
     padding: 10px;
+    height: 80vh;
 }
 
 aside
@@ -45,14 +40,14 @@ aside
     margin-top: 1px;
 }
 
-.banner
+.container__banner
 {
     margin-top: 25px;
     width: 100%;
     display: flex;
 }
 
-.banner .item
+.container__banner__item
 {
     width: 49%;
     background: #f0f0f1;
@@ -60,39 +55,48 @@ aside
     padding: 10px 0 0 10px;
 }
 
-.banner .item p
+.container__banner__item p
 {
     margin: 4px 10px 10px 0;
 }
 
-.banner .item:last-child
+.container__banner .container__banner__item:last-child
 {
   margin-left: 10px;
 }
 
-.prodrybs
+.fishes
 {
     width: 100%;
     display: flex;
+    justify-content: start;
     flex-wrap: wrap;
 }
 
-.ryb
+.fishes__item
 {
+    min-width: calc(28% + 45px);
     padding: 10px;
-    margin-right: 2%;
+    margin-right: 6px;
     margin-bottom: 10px;
     background: #f0f0f1;
-    width: 28%;
     display: flex;
+    flex: 1;
 }
 
-.ryb .desc
+.fishes__item__image
+{
+    width: 64px;
+    height: 64px;
+    border: dashed #737373;
+}
+
+.fishes__item .desc
 {
     margin-left: 10px;
 }
 
-.ryb .desc .link
+.fishes__item .desc .link
 {
     margin-bottom: 17px;
     font-size: 17px;
@@ -101,16 +105,37 @@ aside
 .footer
 {
     grid-area: footer;
-    margin-top: 13px;
+    margin-top: 5px;
     background: #f0f0f1;
     padding: 15px;
     color: gray;
     display: flex;
 }
 
-.footer__item_contact
+.footer__item
 {
-    width: 80%;
+    width: 100%;
+    text-align: right;
+}
+
+@media (max-width: 520px)
+{
+    .main
+    {
+        margin: 0;
+        display: grid;
+        grid-template-columns: 240px 1fr;
+        grid-template-areas:
+            "header header"
+            "main main"
+            "footer footer";
+        grid-gap: 10px;
+    }
+
+    .sidebar
+    {
+        display: none;
+    }
 }
 
 input
@@ -124,7 +149,7 @@ input
 h1
 {
     font-size: 25px;
-    padding: 15px;
+    padding-left: 15px;
 }
 
 h2
@@ -151,9 +176,8 @@ p
     color: #737373;
 }
 
-.image
+body
 {
-    background: #bbbbbb;
-    width: 64px;
-    height: 64px;
+    height: 100vh;
+    margin: 0 auto;
 }
