@@ -1,6 +1,6 @@
 function change__theme()
 {
-    let divs = document.querySelectorAll('div, aside, header, footer, body'); //div
+    let divs = document.querySelectorAll('div, aside, header, footer, body, h2, h3, h4, section,p'); //div
     for (let i = 0; i < divs.length; i++) {
         if (document.getElementById('header__theme__input').checked) {
 
