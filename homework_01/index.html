@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dark.css">
+    <script src="main.js"></script>
     <title>Домашка</title>
 </head>
 <body>
 
-<div class="main">
-
-<div class="header">
+<header class="header">
     <h1>Интернет магазин "Не только красивое"</h1>
-</div>
+    <div class="header__theme">
+        <input type="checkbox" id="header__theme__input" onclick="change__theme();">
+        <label for="header__theme__input">Темная тема</label>
+    </div>
+</header>
 
 <aside class="sidebar">
     <b>Морская рыба</b>
@@ -57,7 +60,7 @@
     </div>
 </aside>
 
-<div class="container">
+<main class="container">
     <article>
         <h2>Рыбы на любой вкус</h2>
         <b>Мы продаём рыбов, а не только показываем</b>
@@ -77,7 +80,7 @@
         <h3>Популярные</h3>
         <div class="fishes">
             <div class="fishes__item" >
-                <img class="fishes__item__image" alt="Рыба" src="fish.svg">
+                <img class="fishes__item__image" alt="Палтус" src="fish.svg">
                 <div class="desc">
                     <div class="link">
                         <a href="#">Палтус</a>
@@ -87,7 +90,7 @@
             </div>
 
             <div class="fishes__item">
-                <img class="fishes__item__image" src="fish.svg">
+                <img class="fishes__item__image" src="fish.svg" alt="Сёмга">
                 <div class="desc">
                     <div class="link">
                         <a href="#">Сёмга</a>
@@ -97,7 +100,7 @@
             </div>
 
             <div class="fishes__item">
-                <img class="fishes__item__image" src="fish.svg">
+                <img class="fishes__item__image" src="fish.svg" alt="Сом">
                 <div class="desc">
                     <div class="link">
                         <a href="#">Сом</a>
@@ -107,7 +110,7 @@
             </div>
 
             <div class="fishes__item">
-                <img class="fishes__item__image" src="fish.svg">
+                <img class="fishes__item__image" src="fish.svg" alt="Мойва">
                 <div class="desc">
                     <div class="link">
                         <a href="#">Мойва</a>
@@ -117,7 +120,7 @@
             </div>
 
             <div class="fishes__item">
-                <img class="fishes__item__image" src="fish.svg">
+                <img class="fishes__item__image" src="fish.svg" alt="Сельдь">
                 <div class="desc">
                     <div class="link">
                         <a href="#">Сельдь</a>
@@ -127,7 +130,7 @@
             </div>
 
             <div class="fishes__item">
-                <img class="fishes__item__image" src="fish.svg">
+                <img class="fishes__item__image" src="fish.svg" alt="Тунец">
                 <div class="desc">
                     <div class="link">
                         <a href="#">Тунец</a>
@@ -136,15 +139,13 @@
                 </div>
             </div>
         </div>
-    </div>
+</main >
 
 
-<div class="footer">
+<footer class="footer">
     <div class="footer__item_contact">Контакты</div>
     <div class="footer__item">@2021 ИП Рыбов О.А.</div>
-</div>
-
-</div>
+</footer>
 
 </body>
 </html>

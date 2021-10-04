@@ -1,4 +1,34 @@
-main__theme-dark
+.__theme-dark
 {
-    background: #6b6b6b;
+    background: #3f3f3f;
+}
+
+.header__theme-dark
+{
+    background: #00310a;
+}
+
+.sidebar__theme-dark
+{
+    background: #a6a6a6;
+}
+
+.container__theme-dark
+{
+
+}
+
+.fishes__item__theme-dark
+{
+    background: #3b3b3b;
+}
+
+.container__banner__item__theme-dark
+{
+    background: #3b3b3b;
+}
+
+.footer__theme-dark
+{
+    background: #1f1f1f;
 }

@@ -1,4 +1,4 @@
-.main
+body
 {
     margin: 0;
     display: grid;
@@ -8,8 +8,8 @@
             "sidebar main main"
             "footer footer footer";
     grid-gap: 10px;
-   /* height: 100vh;
-    grid-template-rows: 60px 1fr 60px;*/
+    height: 100vh;
+    grid-template-rows: 60px 1fr 60px;
 }
 
 .container
@@ -24,6 +24,14 @@
     color: white;
     background: #009958;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__theme
+{
+    margin-right: 15px;
 }
 
 .sidebar
@@ -75,7 +83,7 @@ aside
 
 .fishes__item
 {
-    min-width: calc(28% + 45px);
+    min-width: calc(25% + 55px);
     padding: 10px;
     margin-right: 6px;
     margin-bottom: 10px;
@@ -116,26 +124,6 @@ aside
 {
     width: 100%;
     text-align: right;
-}
-
-@media (max-width: 520px)
-{
-    .main
-    {
-        margin: 0;
-        display: grid;
-        grid-template-columns: 240px 1fr;
-        grid-template-areas:
-            "header header"
-            "main main"
-            "footer footer";
-        grid-gap: 10px;
-    }
-
-    .sidebar
-    {
-        display: none;
-    }
 }
 
 input
@@ -180,4 +168,29 @@ body
 {
     height: 100vh;
     margin: 0 auto;
+}
+
+@media (max-width: 520px)
+{
+    body
+    {
+        margin: 0;
+        display: grid;
+        grid-template-columns: 240px 1fr;
+        grid-template-areas:
+            "header header"
+            "main main"
+            "footer footer";
+        grid-gap: 10px;
+    }
+
+    .sidebar
+    {
+        display: none;
+    }
+
+    h1
+    {
+        font-size: 20px;
+    }
 }
