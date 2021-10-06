@@ -1,0 +1,28 @@
+{
+  "name": "fishshop",
+  "version": "1.0.0",
+  "description": "Simple page for sale fishes",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neznaykas/snopko-sergey-js-21-02.git"
+  },
+  "author": "Sergey Snopko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neznaykas/snopko-sergey-js-21-02/issues"
+  },
+  "homepage": "https://github.com/neznaykas/snopko-sergey-js-21-02#readme",
+  "devDependencies": {
+    "browser-sync": "^2.27.5",
+    "cssnano": "^5.0.8",
+    "gulp": "^4.0.2",
+    "gulp-less": "^5.0.0",
+    "gulp-postcss": "^9.0.1",
+    "less": "^4.1.2",
+    "postcss": "^8.3.9"
+  }
+}
