@@ -1,0 +1,44 @@
+.__theme-dark
+{
+    background: #343434;
+}
+
+.header__theme-dark
+{
+    background: #00673c;
+}
+
+.sidebar__theme-dark
+{
+    background: #a6a6a6;
+}
+
+.container__article__theme-dark
+{
+    color: #e7e7e7;
+}
+
+.fishes__item__theme-dark
+{
+    background: #575757;
+}
+
+.fishes__title__theme-dark
+{
+    color: #e7e7e7;
+}
+
+.container__banner__item__text__theme-dark
+{
+    color: #d9d9d9;
+}
+
+.container__banner__item__theme-dark
+{
+    background: #3b3b3b;
+}
+
+.footer__theme-dark
+{
+    background: #1f1f1f;
+}
