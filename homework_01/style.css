@@ -20,6 +20,49 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+
+.header__loader
+{
+  width: 36px;
+  height: 36px;
+  background: #315881;
+  border-radius: 100%;
+  animation-name: fish_rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+.header__loader2 {
+  width: 36px;
+  height: 36px;
+  background: #315881;
+  border-radius: 100%;
+  animation-name: fish_rotate2;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  animation-direction: inherit;
+}
+
+@keyframes fish_rotate2 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform:  rotate(360deg);
+  }
+}
+
+@keyframes fish_rotate {
+  from {
+      transform: rotate(-20deg);
+  }
+  to {
+      transform:  rotate(20deg);
+  }
+}
+
 .header__theme {
   margin-right: 15px;
 }
@@ -64,7 +107,12 @@ aside {
   background: #f0f0f1;
   display: flex;
   flex: 1;
+  transition: all 0.7s ease;
 }
+.fishes__item:hover {
+  background: #1560c7;
+}
+
 .fishes__item__image {
   width: 64px;
   height: 64px;
