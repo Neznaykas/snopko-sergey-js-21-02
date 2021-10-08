@@ -10,11 +10,6 @@
 .container__article__theme-dark {
   color: #e7e7e7;
 }
-
-.fishes__item__theme-dark:hover {
-  background: #0d3e88;
-}
-
 .fishes__item__theme-dark {
   background: #575757;
 }
@@ -29,4 +24,7 @@
 }
 .footer__theme-dark {
   background: #1f1f1f;
+}
+.fishes__item__theme-dark:hover {
+  background: #183454;
 }
