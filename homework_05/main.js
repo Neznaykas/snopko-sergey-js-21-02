@@ -89,7 +89,7 @@ function dz6()
                 }
             },
             clear: {
-                value: function () {
+                value: () => {
                     this.current = 0;
                     return this;
                 },
@@ -124,5 +124,93 @@ function dz6()
 
 function dz7()
 {
+    const arr = [1, 2, 3, "текст", 5, -1, {obj: "qwer", key: 500}, "3", "4", [10,20,"zxcvzxcv"], undefined, null, -0, NaN, ""];
+
+    function filter (arr = [])
+    {
+        let types = {
+            numbers: [],
+            strings: [],
+            objects: [],
+            arrays: []
+        }
+
+        arr.forEach(function (elem)
+        {
+            if (Array.isArray(elem))
+                types.arrays.push(elem);
+            else
+                if (elem === Object(elem))
+                    types.objects.push(elem);
+                else
+                    if(typeof elem === "string")
+                        types.strings.push(elem);
+                    else
+                        if(Number.isFinite(elem) && elem !== -0)
+                            types.numbers.push(elem);
+
+            //let str = (typeof (elem)).toString(); //не вышло
+            // types[str].push(elem);
+        });
+        return types;
+    }
+
+    console.log(filter(arr));
+}
+
+function dz8()
+{
+    function betweener(ar,a,b)
+    {
+        if (a > b)
+            return false;
+        return ar.filter((e) => e >= a && e <= b);
+    }
+
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    console.log(arr);
+    console.log(betweener(arr,8,10));
+}
+
+function dz9()
+{
+    function anagram (str1 = "", str2 = "") {
+        return str1.split('').sort().join('') === str2.split('').sort().join('')
+    }
+
+    console.log(anagram('пила', 'липа'))
+}
+
+function dz10()
+{
+    function Console_object() {
+        Object.defineProperty(this, "logs",{
+            "value" : () => {
+                console.log(
+                    Object.entries(this).map(([k, v]) =>
+                        `${k}: ${v}`).join(', ')
+                );
+            } ,
+            "enumerable": false,
+            "writable": false
+        });
+    }
+
+    const obj = new Console_object();
+
+    Object.assign(obj, {
+        name: "Сергей",
+        first: "Привет",
+        "123": 123,
+        "key": "value",
+        1000: "1992",
+    });
+
+    obj.logs();
+}
+
+function dz11()
+{
+
 
 }
