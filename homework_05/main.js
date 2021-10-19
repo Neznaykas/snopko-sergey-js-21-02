@@ -211,6 +211,28 @@ function dz10()
 
 function dz11()
 {
+    //не стал ничего выдумавать
+    function Constr() {
+        Object.defineProperties(this, {
+            setProp: {
+                value: (key = "", value, {writable = true, configurable = true,  enumerable = true}) =>
+                {
+                    Object.defineProperty(this, key, {
+                        value: value,
+                        writable: writable,
+                        configurable: configurable,
+                        enumerable: enumerable
+                    });
+                }
+            }
+        });
+    }
 
+    const obj = new Constr();
 
+    obj.setProp("girl", "1", {writable: false})
+    obj.setProp("boys", "2", {writable: false, enumerable: true})
+    obj.setProp("sex", "male", {enumerable: false});
+
+    console.log(Object.getOwnPropertyDescriptors(obj));
 }
