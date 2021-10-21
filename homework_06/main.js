@@ -1,60 +1,44 @@
 function dz()
 {
-    function fibo(num1, num2)
-    {
-        if (num1 <= 1000000000000000000000)
-            fibo(num2, num1 + num2);
-
-        console.log(num1);
-    }
-
-    //fibo(0, 1);
-
-  /*  const memoize = (fn) => {
-        let cache = {};
-        return (...args) => {
-            let n = args[0];
-            if (n in cache) {
-                console.log('Взято из кеша', n);
-                return cache[n];
-            }
-            else {
-                console.log('Вычеслено...', n);
-                let result = fn(n);
-                cache[n] = result;
-                return result;
-            }
+    const fib = (() => {
+        return (val) =>
+        {
+            if (val >= 2)
+                return fib(val-2) + fib(val-1);
+            else
+                return val < 1 ? 0 : 1;
         }
-    }
+    })();
 
-    const fibo2 = //memoize(
-        (x) => {
-            if (x <= 1000)
-            /*    return x + fibo2(x);
-            else*/
-              //  return x + fibo2(x);
-               // else
-                 //   return x + fibo2(x);
-      //  }
-   // );
+    console.log(fib(3));
+    console.log(fib(20));
 
-    //console.log(fibo2(1)); // вычислено
-
-      function fib_function (n1, n2) {
-        let cache = {};
-
-            if (n1 in cache) {
-                console.log('Fetching from cache');
-                return cache[n1];
-            } else {
-                console.log('Вычеслено...', n1);
-                cache[n1] = n1;
-
-                if (n1 <= 1000000000000000000000)
-                    return fib_function(n2, n1 + n2);
+    const fib2 = (() =>
+    {
+        const cash = {};
+        return (val) =>
+        {
+            if (cash[val]) {
+                //console.log(`Взято из кеш ${cash[val]}`);
+                return cash[val];
             }
-            console.log(n1);
-    }
+            else
+            {
+                if (val >= 2)
+                    cash[val] = fib2(val-2) + fib2(val-1);
+                else
+                    cash[val] = val < 1 ? 0 : 1;
 
-    fib_function(0, 1);
+                //console.log(`Расчитано ${cash[val]}`);
+                return cash[val];
+            }
+
+        }
+
+    })();
+
+    console.log(fib2(35));
+    console.log(fib2(25));
+    console.log(fib2(50));
+
 }
