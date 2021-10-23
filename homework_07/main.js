@@ -6,15 +6,16 @@
 //
 // Новая кличка должна содержать только кирилические символы, пробелы или символ "-". В
 //
-// ыполнить то же самое использую функции конструкторы.
+// выполнить то же самое использую функции конструкторы.
 // Выполнить то же самое, используя классы.
 
-let animal = {
+//Обьекты
+const animal = {
     name: 'Джюля',
-    eat: function () {
+    eat () {
         console.log(this.name + ' ест');
     },
-    say: function () {
+    say () {
         console.log('неизвестное животное молчит');
     }
 }
@@ -22,4 +23,85 @@ let animal = {
 console.log(animal);
 animal.eat();
 animal.say();
+
+let cat = {
+    __proto__: animal,
+    hunt() {
+        console.log(this.name + ' охотится')
+    },
+    say() {
+        console.log('Кот молчит');
+    }
+}
+
+let dog = {
+    __proto__: animal,
+    hunt() {
+        console.log(this.name + ' охотится')
+    },
+    say() {
+        console.log('Собака молчит');
+    }
+}
+
+let popuga = {
+    __proto__: animal,
+    hunt() {
+        console.log(this.name + ' охотится')
+    },
+    say() {
+        console.log('Попуга молчит');
+    }
+}
+
+cat.say();
+cat.hunt();
+
+//Функции
+function F_animal() {
+
+    this.name = 'Джюля';
+
+    this.eat = function () {
+        console.log(this.name + ' ест');
+    };
+
+    this.say = function () {
+        console.log('неизвестное животное молчит');
+    }
+
+    Object.defineProperty(this, "eat", {
+        configurable: false,
+        enumerable: false,
+        writable: false
+    });
+    Object.defineProperty(this, "say", {
+        configurable: false,
+        enumerable: false,
+        writable: true
+    });
+}
+
+function F_cat() {
+    this.name = 'Барсик'
+
+    F_animal.call(this);
+
+}
+
+const a = new F_animal();
+const b = new F_cat();
+
+console.log(a);
+a.eat();
+a.say();
+
+b.say();
+
+
+//Классы
+
+
+
+
 
