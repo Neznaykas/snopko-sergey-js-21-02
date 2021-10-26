@@ -17,11 +17,29 @@ const animal = {
     },
     say () {
         console.log('неизвестное животное молчит');
+    },
+    rename (new_name)
+    {
+        const regex = /^([А-ЯЁа-яё]|\s|-)+$/g;
+        if (regex.test(new_name)){
+            this.name = new_name;
+        }
+        else{
+            console.log('Кличка должна содержать только кирилические символы, пробелы или символ "-"');
+        }
     }
 }
 
+Object.defineProperties(animal, {
+    eat: { configurable: false, enumerable: false, writable: false},
+    say: { configurable: false, enumerable: false, writable: true},
+    rename: { configurable: false, enumerable: false, writable: false}
+});
+
 console.log(animal);
 animal.eat();
+animal.say();
+animal.rename('всё ещё Джюля');
 animal.say();
 
 let cat = {
@@ -70,15 +88,21 @@ function F_animal(name = 'Джюля') {
         console.log('неизвестное животное молчит');
     }
 
-    Object.defineProperty(this, "eat", {
-        configurable: false,
-        enumerable: false,
-        writable: false
-    });
-    Object.defineProperty(this, "say", {
-        configurable: false,
-        enumerable: false,
-        writable: true
+    this.rename = function (new_name)
+    {
+        const regex = /^([А-ЯЁа-яё]|\s|-)+$/g;
+        if (regex.test(new_name)){
+            this.name = new_name;
+        }
+        else{
+            console.log('Кличка должна содержать только кирилические символы, пробелы или символ "-"');
+        }
+    }
+
+    Object.defineProperties(this, {
+        eat: { configurable: false, enumerable: false, writable: false},
+        say: { configurable: false, enumerable: false, writable: true},
+        rename: { configurable: false, enumerable: false, writable: false}
     });
 }
 
@@ -129,18 +153,21 @@ function F_popuga(name)
     });
 }
 
-const a = new F_animal();
-const fcat = new F_cat('Функциональная Джюля');
-const fdog = new F_dog('Функциональный Барсик');
+const f_a = new F_animal();
+const f_cat = new F_cat('Функциональная Джюля');
+const f_dog = new F_dog('Функциональный Барсик');
 
-a.eat();
-a.say();
+f_a.eat();
+f_a.say();
 
-fcat.say();
-fcat.eat();
+f_cat.say();
+f_cat.eat();
 
-fdog.say();
-fdog.eat();
+f_cat.rename('Тузя');
+f_cat.eat();
+
+f_dog.say();
+f_dog.eat();
 
 //Классы
 
