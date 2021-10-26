@@ -58,9 +58,9 @@ cat.say();
 cat.hunt();
 
 //Функции
-function F_animal() {
+function F_animal(name = 'Джюля') {
 
-    this.name = 'Джюля';
+    this.name = name;
 
     this.eat = function () {
         console.log(this.name + ' ест');
@@ -82,22 +82,65 @@ function F_animal() {
     });
 }
 
-function F_cat() {
-    this.name = 'Барсик'
+function F_cat(name) {
+    this.name = name;
+    F_animal.call(this, name);
 
-    F_animal.call(this);
+    this.say = function () {
+        console.log('Кот молчит');
+    }
 
+    Object.defineProperty(this, "say", {
+        configurable: false,
+        enumerable: false,
+        writable: true
+    });
+}
+
+function F_dog(name)
+{
+    this.name = name;
+    F_animal.call(this, name);
+
+    this.say = function () {
+        console.log('Собака молчит');
+    }
+
+    Object.defineProperty(this, "say", {
+        configurable: false,
+        enumerable: false,
+        writable: true
+    });
+}
+
+function F_popuga(name)
+{
+    this.name = name;
+    F_animal.call(this, name);
+
+    this.say = function () {
+        console.log('Попугай молчит');
+    }
+
+    Object.defineProperty(this, "say", {
+        configurable: false,
+        enumerable: false,
+        writable: true
+    });
 }
 
 const a = new F_animal();
-const b = new F_cat();
+const fcat = new F_cat('Функциональная Джюля');
+const fdog = new F_dog('Функциональный Барсик');
 
-console.log(a);
 a.eat();
 a.say();
 
-b.say();
+fcat.say();
+fcat.eat();
 
+fdog.say();
+fdog.eat();
 
 //Классы
 
