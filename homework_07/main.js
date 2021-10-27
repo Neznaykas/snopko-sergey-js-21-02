@@ -189,8 +189,12 @@ class c_animal
         console.log(`${this.#name} ест`);
     }
 
-    say () {
+    #say () {
         console.log('неизвестное животное молчит');
+    }
+
+    get say () {
+        this.#say();
     }
 
     rename(new_name)
@@ -206,6 +210,57 @@ class c_animal
 
 }
 
+class c_cat extends c_animal {
+
+    #say () {
+        console.log('кот молчит как партизан');
+    };
+
+    get say() {
+        this.#say();
+    };
+
+    #hunt (){
+        console.log(`${this.name} охотится`);
+    };
+    get hunt(){
+        this.#hunt();
+    }
+}
+
+class c_dog extends c_animal {
+    #say () {
+        console.log('собака тоже молчит как партизан');
+    };
+
+    get say(){
+        this.#say();
+    };
+    #hunt (){
+        console.log(`${this.name} охотится`);
+    };
+    get hunt(){
+        this.#hunt();
+    }
+}
+
+class c_popuga extends c_animal {
+
+    #say () {
+        console.log('Попугай молчит повторяя вас');
+    };
+    get say(){
+        this.#say();
+    };
+    #hunt (){
+        console.log(`${this.name} охотится`);
+    };
+    get hunt(){
+        this.#hunt();
+    }
+}
+
+
 const c_a = new c_animal();
 
 console.log(c_a.name);
@@ -213,8 +268,13 @@ c_a.eat();
 c_a.rename('Классовая Джюля');
 c_a.eat();
 
+const class_cat = new c_cat();
+class_cat.say;
+class_cat.hunt;
 
-
+const cpopuga = new c_popuga();
+cpopuga.rename('Кеша хороший')
+cpopuga.hunt;
 
 
 
