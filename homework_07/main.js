@@ -73,7 +73,11 @@ let popuga = {
 }
 
 cat.say();
+dog.say();
+popuga.say();
 cat.hunt();
+dog.hunt();
+popuga.hunt();
 
 //Функции
 function F_animal(name = 'Джюля') {
@@ -156,6 +160,7 @@ function F_popuga(name)
 const f_a = new F_animal();
 const f_cat = new F_cat('Функциональная Джюля');
 const f_dog = new F_dog('Функциональный Барсик');
+const f_popuga = new F_popuga('Функциональный Попугай');
 
 f_a.eat();
 f_a.say();
@@ -168,6 +173,9 @@ f_cat.eat();
 
 f_dog.say();
 f_dog.eat();
+
+f_popuga.say();
+f_popuga.eat();
 
 //Классы
 class c_animal
@@ -189,12 +197,12 @@ class c_animal
         console.log(`${this.#name} ест`);
     }
 
-    #say () {
+    static #say () {
         console.log('неизвестное животное молчит');
     }
 
     get say () {
-        this.#say();
+        c_animal.#say();
     }
 
     rename(new_name)
@@ -212,12 +220,12 @@ class c_animal
 
 class c_cat extends c_animal {
 
-    #say () {
+    static #say () {
         console.log('кот молчит как партизан');
     };
 
     get say() {
-        this.#say();
+        c_cat.#say();
     };
 
     #hunt (){
@@ -229,12 +237,12 @@ class c_cat extends c_animal {
 }
 
 class c_dog extends c_animal {
-    #say () {
+    static #say () {
         console.log('собака тоже молчит как партизан');
     };
 
     get say(){
-        this.#say();
+        c_dog.#say();
     };
     #hunt (){
         console.log(`${this.name} охотится`);
@@ -246,11 +254,11 @@ class c_dog extends c_animal {
 
 class c_popuga extends c_animal {
 
-    #say () {
+    static #say () {
         console.log('Попугай молчит повторяя вас');
     };
     get say(){
-        this.#say();
+        c_popuga.#say();
     };
     #hunt (){
         console.log(`${this.name} охотится`);
@@ -271,6 +279,10 @@ c_a.eat();
 const class_cat = new c_cat();
 class_cat.say;
 class_cat.hunt;
+
+const class_dog = new c_dog();
+class_dog.say;
+class_dog.hunt;
 
 const cpopuga = new c_popuga();
 cpopuga.rename('Кеша хороший')
