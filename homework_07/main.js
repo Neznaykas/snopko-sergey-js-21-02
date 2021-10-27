@@ -170,6 +170,49 @@ f_dog.say();
 f_dog.eat();
 
 //Классы
+class c_animal
+{
+    #name
+    constructor(name = 'Джюля') {
+        this.#name = name;
+    }
+
+    get name () {
+        return this.#name;
+    }
+
+    set name(name) {
+        this.#name = name;
+    }
+
+    eat () {
+        console.log(`${this.#name} ест`);
+    }
+
+    say () {
+        console.log('неизвестное животное молчит');
+    }
+
+    rename(new_name)
+    {
+        const regex = /^([А-ЯЁа-яё]|\s|-)+$/g;
+        if (regex.test(new_name)){
+            this.name = new_name;
+        }
+        else{
+            console.log('Кличка должна содержать только кирилические символы, пробелы или символ "-"');
+        }
+    }
+
+}
+
+const c_a = new c_animal();
+
+console.log(c_a.name);
+c_a.eat();
+c_a.rename('Классовая Джюля');
+c_a.eat();
+
 
 
 
