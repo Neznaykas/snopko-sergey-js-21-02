@@ -1,0 +1,16 @@
+table
+{
+    margin: auto;
+    background: #00673c;
+    color: #d9d9d9;
+}
+
+thead
+{
+    background: #009958;
+}
+
+td
+{
+    width: 100px;
+}
