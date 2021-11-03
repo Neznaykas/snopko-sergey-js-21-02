@@ -2,7 +2,7 @@ let btns = document.getElementsByClassName("theme");
 
 for (let btn of btns)
 {
-    btn.addEventListener('click', e =>
+    btn.addEventListener('click', () =>
     {
         let table = document.querySelectorAll('td');
         table.forEach(function (item)
@@ -15,7 +15,7 @@ for (let btn of btns)
 
 let add = document.getElementById("add");
 
-add.addEventListener('click', e =>
+add.addEventListener('click', () =>
 {
     const regex = /^[А-ЯЁ][а-яё]+/;
     const regex2 = /\d/;
@@ -35,25 +35,22 @@ add.addEventListener('click', e =>
         let cell3 = row.insertCell(2);
         let cell4 = row.insertCell(3);
 
-        cell1.innerHTML = tbody.getElementsByTagName('tr').length.toString();
+        let index = tbody.getElementsByTagName('tr').length.toString();
+
+        cell1.innerHTML = index;
         cell2.innerHTML = text;
         cell3.innerHTML = number;
-        cell4.innerHTML = '<input type="button" value="Удалить" id="del">';
+        cell4.innerHTML = '<input type="button" value="Удалить" id="del' + index + '">';
 
-        let btn = '<input type="button" value="Удалить" id="del">';
+        let rem = document.getElementById("del" + index);
 
-        /*btn.addEventListener('click', e => {
-
-        });*/
-
-        cell4.innerHTML = btn;
+        rem.addEventListener('click', function ()
+        {
+            this.parentElement.parentElement.remove();
+        })
     }
-
-
 })
 
-let remove = document.getElementById("del");
-
-remove.addEventListener('click', e => {
-
-});
+//init
+for (let i = 0; i < 10; i++)
+    add.click();
