@@ -36,10 +36,10 @@ Object.defineProperties(animal, {
     rename: { configurable: false, enumerable: false, writable: false}
 });
 
-console.log(animal);
+
+console.log('Обьекты...');
 animal.eat();
-animal.say();
-animal.rename('всё ещё Джюля');
+animal.rename('Джюля rename');
 animal.say();
 
 let cat = {
@@ -52,6 +52,11 @@ let cat = {
     }
 }
 
+Object.defineProperties(cat, {
+    hunt: { configurable: false, enumerable: false, writable: false},
+    say: { configurable: false, enumerable: false, writable: true},
+});
+
 let dog = {
     __proto__: animal,
     hunt() {
@@ -61,6 +66,11 @@ let dog = {
         console.log('Собака молчит');
     }
 }
+
+Object.defineProperties(dog, {
+    hunt: { configurable: false, enumerable: false, writable: false},
+    say: { configurable: false, enumerable: false, writable: true},
+});
 
 let popuga = {
     __proto__: animal,
@@ -72,13 +82,20 @@ let popuga = {
     }
 }
 
+Object.defineProperties(popuga, {
+    hunt: { configurable: false, enumerable: false, writable: false},
+    say: { configurable: false, enumerable: false, writable: true},
+});
+
 cat.say();
 dog.say();
 popuga.say();
+
 cat.hunt();
 dog.hunt();
 popuga.hunt();
 
+console.log('Функции...');
 //Функции
 function F_animal(name = 'Джюля') {
 
@@ -110,12 +127,17 @@ function F_animal(name = 'Джюля') {
     });
 }
 
-function F_cat(name) {
+function F_cat(name)
+{
     this.name = name;
     F_animal.call(this, name);
 
     this.say = function () {
         console.log('Кот молчит');
+    }
+
+    this.hunt = function () {
+        console.log(this.name + ' охотится')
     }
 
     Object.defineProperty(this, "say", {
@@ -167,6 +189,7 @@ f_a.say();
 
 f_cat.say();
 f_cat.eat();
+f_cat.hunt();
 
 f_cat.rename('Тузя');
 f_cat.eat();
@@ -177,6 +200,7 @@ f_dog.eat();
 f_popuga.say();
 f_popuga.eat();
 
+console.log('Классы...');
 //Классы
 class c_animal
 {
@@ -218,8 +242,8 @@ class c_animal
 
 }
 
-class c_cat extends c_animal {
-
+class c_cat extends c_animal
+{
     static #say () {
         console.log('кот молчит как партизан');
     };
@@ -231,6 +255,7 @@ class c_cat extends c_animal {
     #hunt (){
         console.log(`${this.name} охотится`);
     };
+
     get hunt(){
         this.#hunt();
     }
@@ -277,11 +302,11 @@ c_a.rename('Классовая Джюля');
 c_a.eat();
 
 const class_cat = new c_cat();
-class_cat.say;
-class_cat.hunt;
+class_cat.say; //?
+class_cat.hunt; //?
 
 const class_dog = new c_dog();
-class_dog.say;
+class_dog.say; //?
 class_dog.hunt;
 
 const cpopuga = new c_popuga();
