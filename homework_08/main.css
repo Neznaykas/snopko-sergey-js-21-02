@@ -13,4 +13,23 @@ thead
 td
 {
     width: 100px;
+    padding: 3px 5px;
+}
+
+.dark
+{
+    background: #737373;
+    color: #c0c0c0;
+}
+
+.light
+{
+    background: #e3e3e3;
+    color: #282828;
+}
+
+.orange
+{
+    background: #a44903;
+    color: #d5900c;
 }
