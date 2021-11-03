@@ -1,0 +1,42 @@
+table
+{
+    margin: auto;
+    background: #6c6c6c;
+    color: #d9d9d9;
+}
+
+thead
+{
+    background: #009958;
+}
+
+td
+{
+    width: 100px;
+    padding: 3px 5px;
+}
+
+.dark
+{
+    background: #383838;
+    color: #c0c0c0;
+}
+
+.light
+{
+    background: #e3e3e3;
+    color: #282828;
+}
+
+.orange
+{
+    background: #a44903;
+    color: #d5900c;
+}
+
+input
+{
+    border-radius: 5px;
+    width: 100px;
+    border-color: #008dbd;
+}

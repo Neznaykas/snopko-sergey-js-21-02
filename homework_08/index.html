@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Домашняя работа 8</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="scripts.js" defer></script>
+</head>
+<!-- Реализация таблицы с именем и номером телефона,
+с возможностью добавления через валидируемые инпуты новых строк.
+
+Добавить три кнопки, для смены цветового оформления таблицы
+(каждая меняет цвет фона и текста, цвета на выбор слушателей).
+*Усложнённое задание: реализовать в каждой строке таблицы кнопку
+для удаление её строки из таблицы -->
+<body>
+    <input type="button" value="Светлая" class="theme light" id="theme1">
+    <input type="button" value="Тёмная" class="theme dark" >
+    <input type="button" value="Оранж" class="theme orange">
+    <br><br>
+    <table id="table">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>
+                    <label>
+                        <input type="text" value="Александр" name="name" placeholder="Имя">
+                    </label>
+                </td>
+                <td>
+                    <label>
+                        <input type="text" value="8951001234" name="number" placeholder="Номер">
+                    </label>
+                </td>
+                <td>
+                    <input type="button" value="Добавить" id="add">
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+          <!--  <tr>
+                <td>1</td>
+                <td>Сергей</td>
+                <td>+79510000123</td>
+                <td><input type="button" value="Удалить" id="del"></td>
+            </tr> -->
+        </tbody>
+
+    </table>
+</body>
+</html>
