@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Домашняя работа 8</title>
     <link rel="stylesheet" type="text/css" href="main.css">
-    <script src="scripts.js"></script>
+    <script src="scripts.js" defer></script>
 </head>
 <!-- Реализация таблицы с именем и номером телефона,
 с возможностью добавления через валидируемые инпуты новых строк.
@@ -14,9 +14,9 @@
 *Усложнённое задание: реализовать в каждой строке таблицы кнопку
 для удаление её строки из таблицы -->
 <body>
-    <input type="button" value="Светлая" onclick="theme1()">
-    <input type="button" value="Тёмная" onclick="theme2()">
-    <input type="button" value="Оранж" onclick="theme3()">
+    <input type="button" value="Светлая" class="theme light" id="theme1">
+    <input type="button" value="Тёмная" class="theme dark" >
+    <input type="button" value="Оранж" class="theme orange">
     <br><br>
     <table>
         <thead>
@@ -33,7 +33,7 @@
                     </label>
                 </td>
                 <td>
-                    <input type="button" value="Добавить">
+                    <input type="button" value="Добавить" id="add">
                 </td>
             </tr>
         </thead>
@@ -42,7 +42,7 @@
                 <td>1</td>
                 <td>Сергей</td>
                 <td>+79510000123</td>
-                <td><input type="button" value="Удалить"></td>
+                <td><input type="button" value="Удалить" id="del"></td>
             </tr>
         </tbody>
 

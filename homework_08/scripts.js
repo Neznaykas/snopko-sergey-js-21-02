@@ -1,31 +1,27 @@
-function theme1()
+let btns = document.getElementsByClassName("theme");
+
+for (let btn of btns)
 {
-    let table = document.querySelectorAll('td');
-
-    table.forEach(function (item) {
-        item.classList.remove('dark', 'orange')
-        item.classList.add('light');
-    });
-
-}
-
-function theme2()
-{
-    let table = document.querySelectorAll('td');
-
-    table.forEach(function (item) {
-        item.classList.remove('light', 'orange');
-        item.classList.add('dark');
+    btn.addEventListener('click', e =>
+    {
+        let table = document.querySelectorAll('td');
+        table.forEach(function (item)
+        {
+            item.classList.remove('dark', 'orange', 'light');
+            item.classList.add(btn.classList.item(1));
+        });
     });
 }
 
-function theme3()
+let add = document.getElementById("add");
+
+add.addEventListener('click', e =>
 {
-    let table = document.querySelectorAll('td');
 
-    table.forEach(function (item) {
-        item.classList.remove('light', 'dark');
+})
 
-        item.classList.add('orange');
-    });
-}
+let remove = document.getElementById("del");
+
+remove.addEventListener('click', e => {
+
+});

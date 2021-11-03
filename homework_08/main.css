@@ -33,3 +33,10 @@ td
     background: #a44903;
     color: #d5900c;
 }
+
+input
+{
+    border-radius: 5px;
+    width: 100px;
+    border-color: #008dbd;
+}
