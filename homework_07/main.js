@@ -145,6 +145,12 @@ function F_cat(name)
         enumerable: false,
         writable: true
     });
+
+    Object.defineProperty(this, "hunt", {
+        configurable: false,
+        enumerable: false,
+        writable: true
+    });
 }
 
 function F_dog(name)
@@ -221,12 +227,12 @@ class c_animal
         console.log(`${this.#name} ест`);
     }
 
-    static #say () {
-        console.log('неизвестное животное молчит');
+    get say () {
+        this.#say();
     }
 
-    get say () {
-        c_animal.#say();
+    #say () {
+        console.log('неизвестное животное молчит');
     }
 
     rename(new_name)
@@ -239,36 +245,37 @@ class c_animal
             console.log('Кличка должна содержать только кирилические символы, пробелы или символ "-"');
         }
     }
-
 }
 
 class c_cat extends c_animal
 {
-    static #say () {
+    #say () {
         console.log('кот молчит как партизан');
     };
 
     get say() {
-        c_cat.#say();
+        this.#say();
     };
 
-    #hunt (){
+    #hunt () {
         console.log(`${this.name} охотится`);
-    };
+    }
 
     get hunt(){
         this.#hunt();
     }
 }
 
-class c_dog extends c_animal {
-    static #say () {
+class c_dog extends c_animal
+{
+    get say() {
+        this.#say();
+    }
+
+    #say () {
         console.log('собака тоже молчит как партизан');
-    };
+    }
 
-    get say(){
-        c_dog.#say();
-    };
     #hunt (){
         console.log(`${this.name} охотится`);
     };
@@ -277,17 +284,19 @@ class c_dog extends c_animal {
     }
 }
 
-class c_popuga extends c_animal {
+class c_popuga extends c_animal
+{
+    get say() {
+        this.#say();
+    }
 
-    static #say () {
+    #say () {
         console.log('Попугай молчит повторяя вас');
-    };
-    get say(){
-        c_popuga.#say();
-    };
+    }
+
     #hunt (){
         console.log(`${this.name} охотится`);
-    };
+    }
     get hunt(){
         this.#hunt();
     }
@@ -302,11 +311,11 @@ c_a.rename('Классовая Джюля');
 c_a.eat();
 
 const class_cat = new c_cat();
-class_cat.say; //?
-class_cat.hunt; //?
+class_cat.say;
+class_cat.hunt;
 
 const class_dog = new c_dog();
-class_dog.say; //?
+class_dog.say;
 class_dog.hunt;
 
 const cpopuga = new c_popuga();
