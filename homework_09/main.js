@@ -94,5 +94,5 @@ function work3()
         });
     }
 
-    swapi.getMain(printTable, console.error)
+    swapi.getMain(printTable, console.error).then(r => console.log('end'));
 }
