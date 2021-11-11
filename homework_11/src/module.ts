@@ -1,11 +1,11 @@
-function work3()
+export function work3()
 {
     //3. Реализовать страницу с таблицей.
     // Таблица должна содержать инфрмацию, полученную по API https://swapi.dev/api/people/ (массив объектов в свойстве "results").
     // А именно росте, весе и поле персонажей (поля "name", "height", "mass" и "gender" соответственно).
 
     const swapi = { // Объект для бращения к API
-        async getMain(callback, errorCallback) { // Получение основной информации
+         async getMain(callback: any, errorCallback: any) { // Получение основной информации
             await fetch('https://swapi.dev/api/people/')
                 .then(response => {
                     console.log(response.status)
@@ -20,7 +20,7 @@ function work3()
         }
     }
 
-    function printTable(obj)
+    function printTable(obj: any)
     {
         const table = document.createElement('table');
         const head = table.createTHead();
@@ -33,7 +33,10 @@ function work3()
 
         const body= table.createTBody();
 
-        Object.values(obj.results).forEach(value =>
+        Object.keys(obj.results).map(function(key) {
+            console.log(obj.results[key]);
+            return obj.results[key];
+        }).forEach((value: { name: string; height: string; mass: string; gender: string; }) =>
         {
             let row = body.insertRow();
 

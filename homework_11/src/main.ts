@@ -1,6 +1,6 @@
-const printHello = (name: any) =>
-{
-    console.log('ok!!!' + name);
-}
+import {work3} from "./module";
 
-printHello('hello');
+document.getElementById('button').addEventListener('click', () =>
+{
+    work3();
+});
