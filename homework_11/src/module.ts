@@ -22,9 +22,9 @@ export function work3()
 
     function printTable(obj: any)
     {
-        const table = document.createElement('table');
-        const head = table.createTHead();
-        const hrow = head.insertRow(0);
+        const table: HTMLTableElement = document.createElement('table');
+        const head: HTMLTableSectionElement = table.createTHead();
+        const hrow: HTMLTableRowElement  = head.insertRow(0);
 
         hrow.insertCell(0).innerText = 'Имя';
         hrow.insertCell(1).innerText = 'Рост';

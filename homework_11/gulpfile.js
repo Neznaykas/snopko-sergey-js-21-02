@@ -27,7 +27,7 @@ gulp.task('serve', () => {
 const whatchifyBrowserify = watchify(browserify( // Обёртка для слежения за изменениями ts
     {
         basedir: '.',
-        entries: ["./src/main.ts"], // Фалйы для обработки
+        entries: ["./src/main.ts", "./src/module.ts", // Файлы для обработки
         cache: {},
         debug: true, // Включаем отладку
         packageCache: {}
