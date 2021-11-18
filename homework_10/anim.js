@@ -5,7 +5,6 @@ export function load(run){
         ld.style.display = "block";
     }
     else{
-        ld.innerHTML="";
         ld.style.display = "none";
     }
 }

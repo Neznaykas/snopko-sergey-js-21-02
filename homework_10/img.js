@@ -1,4 +1,4 @@
-import {load} from "./form.js";
+import {load} from "./anim.js";
 
 export const URL = "https://api.imgbb.com/1/upload";
 export const KEY = "f24733575ebe6fcb8eeeda9ef8ea8db8";
