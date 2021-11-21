@@ -1,6 +1,7 @@
 import './App.css';
 import logo from "./logo.svg";
 import {Table} from "./components/table/Table";
+import {Add} from "./components/add/Add";
 
 /*  Разработка ToDo-листа (списка дел) на react.
 Предусмотреть минимальный функционал, т.е. у пользователя должна быть возможность добавлять и удалять записи.
@@ -13,6 +14,8 @@ import {Table} from "./components/table/Table";
           <header className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
           <p>Список дел (ToDo лист) на React</p>
+
+          <Add/>
 
           <div className="keeps">
               <Table/>
