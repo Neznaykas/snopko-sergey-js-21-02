@@ -1,0 +1,16 @@
+.fishes {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+.fishes__item {
+    min-width: calc(25% + 55px);
+    padding: 10px;
+    margin-right: 6px;
+    margin-bottom: 10px;
+    background: #f0f0f1;
+    display: flex;
+    flex: 1;
+    transition: all 0.7s ease;
+}
