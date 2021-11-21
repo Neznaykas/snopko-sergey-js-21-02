@@ -1,0 +1,17 @@
+.container__banner {
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+}
+.container__banner__item {
+    width: 49%;
+    background: #f0f0f1;
+    margin: 0;
+    padding: 10px 0 0 10px;
+}
+.container__banner__item p {
+    margin: 4px 10px 10px 0;
+}
+.container__banner .container__banner__item:last-child {
+    margin-left: 10px;
+}
