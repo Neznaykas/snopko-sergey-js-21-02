@@ -1,0 +1,12 @@
+.footer {
+    grid-area: footer;
+    margin-top: 5px;
+    background: #f0f0f1;
+    padding: 15px;
+    color: gray;
+    display: flex;
+}
+.footer__item {
+    width: 100%;
+    text-align: right;
+}

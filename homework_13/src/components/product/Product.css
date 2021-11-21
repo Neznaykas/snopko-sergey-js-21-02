@@ -14,3 +14,19 @@
     flex: 1;
     transition: all 0.7s ease;
 }
+
+.fishes__item:hover {
+    background: #3854c5;
+}
+.fishes__item__image {
+    width: 64px;
+    height: 64px;
+    border: dashed #737373;
+}
+.fishes__item .desc {
+    margin-left: 10px;
+}
+.fishes__item .desc .link {
+    margin-bottom: 17px;
+    font-size: 17px;
+}
