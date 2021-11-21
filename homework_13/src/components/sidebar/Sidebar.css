@@ -4,3 +4,7 @@
     padding: 10px;
     height: 80vh;
 }
+
+.sidebar__theme-dark {
+    background: #a6a6a6;
+}

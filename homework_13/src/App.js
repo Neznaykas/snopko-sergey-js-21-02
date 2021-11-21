@@ -1,11 +1,13 @@
 import React from "react";
 import './App.css';
+import './dark.css';
 
 import {Header} from "./components/header/Header";
 import {Product} from "./components/product/Product";
 import {Sidebar} from "./components/sidebar/Sidebar";
 import {Footer} from "./components/footer/Footer";
 import {Banner} from "./components/banner/Banner";
+
 
 class App extends React.Component {
   render() {

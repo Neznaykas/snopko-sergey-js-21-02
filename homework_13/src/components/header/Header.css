@@ -30,3 +30,7 @@
     animation-iteration-count: infinite;
     animation-direction: inherit;
 }
+
+.header__theme-dark {
+    background: #00673c;
+}

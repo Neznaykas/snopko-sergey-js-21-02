@@ -1,0 +1,32 @@
+{
+  "files": [
+    "./src/themer.ts"
+  ],
+  "exclude": [
+    "./build/*"
+  ],
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "ES2015"
+    ],
+    "noImplicitAny": true,
+    "target": "ES6",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "src"
+  ]
+}
