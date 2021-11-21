@@ -1,0 +1,43 @@
+.fishes {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+.fishes__item {
+    min-width: calc(25% + 55px);
+    padding: 10px;
+    margin-right: 6px;
+    margin-bottom: 10px;
+    background: #f0f0f1;
+    display: flex;
+    flex: 1;
+    transition: all 0.7s ease;
+}
+
+.fishes__item:hover {
+    background: #3854c5;
+}
+.fishes__item__image {
+    width: 64px;
+    height: 64px;
+    border: dashed #737373;
+}
+.fishes__item .desc {
+    margin-left: 10px;
+}
+.fishes__item .desc .link {
+    margin-bottom: 17px;
+    font-size: 17px;
+}
+
+.fishes__item__theme-dark {
+    background: #575757;
+}
+.fishes__title__theme-dark {
+    color: #e7e7e7;
+}
+
+.fishes__item__theme-dark:hover {
+    background: #183454;
+}
