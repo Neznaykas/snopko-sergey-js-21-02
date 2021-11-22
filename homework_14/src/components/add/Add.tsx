@@ -19,7 +19,7 @@ export class Add extends React.Component<Props, State> {
     this.add = this.add.bind(this);
     this.change = this.change.bind(this);
 
-    this.state = { value: "123"}
+    this.state = { value: "Добавте заметку в ваш TODO-лист"}
   }
 
   change(item: any)

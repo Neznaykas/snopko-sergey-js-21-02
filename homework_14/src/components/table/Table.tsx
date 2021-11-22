@@ -12,7 +12,7 @@ export class Table extends React.Component<Props> {
     return (
       <section className="container__item">
         <div className="container__item__item">
-          <p className="container__item__text">Описание заметки</p>
+          <p className="container__item__text">{ this.props.text != null ? this.props.text : 'ваш текст заметки' }</p>
         </div>
       </section>
     );
