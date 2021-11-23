@@ -1,11 +1,14 @@
 import React from 'react';
 import './Add.css';
+import {Table} from "../table/Table";
+import {Keep} from "../../App";
 
 interface Props { // Объявление интерфейса пропсов
   name?: string;
   text?: string;
   addLike?: () => void;
   removeLike?: () => void;
+  tables?: Keep[]
 }
 
 interface State { // Объявление интерфейса пропсов
@@ -33,6 +36,11 @@ export class Add extends React.Component<Props, State> {
 
   add()
   {
+    this.props.tables?.push({text: this.state.value})
+    localStorage.setItem("text", JSON.stringify(this.props.tables));
+
+    this.forceUpdate();
+
     console.log(this.state.value);
   }
 

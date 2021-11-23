@@ -10,7 +10,28 @@ import logo from './logo.svg'
 Записи должны сохраняться при перезагрузке страницы.
  */
 
-class App extends React.Component {
+export interface Keep
+{
+  text: string
+}
+
+interface Props {
+  keeps: Keep[];
+}
+
+class App extends React.Component<Props> {
+
+  constructor(props: Props) {
+    super(props);
+    this.remove = this.remove.bind(this);
+  }
+
+  remove(id:number)
+  {
+    this.props.keeps.splice(id, 1);
+    localStorage.setItem("text", JSON.stringify(this.props.keeps));
+  }
+
   render() {
     return (
       <div className="App">
@@ -18,15 +39,14 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
           <p>Список дел (ToDo лист) на React</p>
 
-          <Add />
+          <Add tables={this.props.keeps}/>
 
           <div className="keeps">
-            <Table text="заметка" id="1"/>
-            <Table />
-            <Table />
-            <Table />
-            <Table />
-            <Table />
+            {this.props.keeps?.map((e,index)=>
+                <Table key={index} id={index} text={e.text} remove={this.remove}/>)}
+
+            {/*  <Table text="заметка" id={1} remove={this.remove}/>
+            <Table text="заметка2" id={2} remove={this.remove}/> */}
           </div>
 
         </header>

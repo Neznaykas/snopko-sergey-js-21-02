@@ -1,10 +1,11 @@
 import React from 'react';
 import './Table.css';
+import {Keep} from "../../App";
 
 interface Props { // Объявление интерфейса пропсов
-  id?: string;
-  text?: string;
-  remove?: () => void;
+  id: number;
+  text: string;
+  remove: (id: number) => void;
 }
 
 interface State {
@@ -22,6 +23,10 @@ export class Table extends React.Component<Props, State>
 
   delete() {
     console.log('delete');
+    this.setState({
+          show: false
+      })
+    this.props.remove(this.props.id)
   }
 
   render() {
@@ -33,7 +38,6 @@ export class Table extends React.Component<Props, State>
               <button className="container__delete" onClick={this.delete} ><img src="close.png" alt="Delete" /></button>
           </div>
           <div className="container__item__item">
-
           <p className="container__item__text">{ this.props.text != null ? this.props.text : 'ваш текст заметки' }</p>
         </div>
       </section> : ''
