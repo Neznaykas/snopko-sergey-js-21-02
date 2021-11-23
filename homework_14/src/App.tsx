@@ -21,7 +21,7 @@ class App extends React.Component {
           <Add />
 
           <div className="keeps">
-            <Table text="заметка"/>
+            <Table text="заметка" id="1"/>
             <Table />
             <Table />
             <Table />
