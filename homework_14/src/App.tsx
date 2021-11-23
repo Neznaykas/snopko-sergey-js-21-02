@@ -35,8 +35,13 @@ class App extends React.Component<Props, State> {
 
   remove(id:number)
   {
-    this.props.keeps.splice(id, 1);
-    localStorage.setItem("text", JSON.stringify(this.props.keeps));
+    this.state.keeps.splice(id, 1);
+
+    this.setState({
+      keeps: this.state.keeps
+    })
+
+    localStorage.setItem("text", JSON.stringify(this.state.keeps));
   }
 
   add(keep: Keep)
@@ -61,7 +66,7 @@ class App extends React.Component<Props, State> {
 
           <div className="keeps">
             {this.state.keeps?.map((e,index)=>
-                <Table key={index} id={index} text={e.text} remove={this.remove}/>)}
+                <Table key={index} id={index+1} text={e.text} remove={this.remove}/>)}
 
             {/*  <Table text="заметка" id={1} remove={this.remove}/>
             <Table text="заметка2" id={2} remove={this.remove}/> */}

@@ -22,10 +22,12 @@ export class Table extends React.Component<Props, State>
 
   delete() {
     console.log('delete');
-    this.setState({
+
+    /*this.setState({
           show: false
-      })
-    this.props.remove(this.props.id)
+      })*/
+
+    this.props.remove(this.props.id-1)
   }
 
   render() {
