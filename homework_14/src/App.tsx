@@ -19,16 +19,35 @@ interface Props {
   keeps: Keep[];
 }
 
-class App extends React.Component<Props> {
+interface State {
+  keeps: Keep[];
+}
+
+class App extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
     this.remove = this.remove.bind(this);
+    this.add = this.add.bind(this)
+
+    this.state = {keeps: this.props.keeps}
   }
 
   remove(id:number)
   {
     this.props.keeps.splice(id, 1);
+    localStorage.setItem("text", JSON.stringify(this.props.keeps));
+  }
+
+  add(keep: Keep)
+  {
+    console.log(this.state);
+    this.state.keeps.push(keep)
+
+    this.setState({
+      keeps: this.state.keeps
+    })
+
     localStorage.setItem("text", JSON.stringify(this.props.keeps));
   }
 
@@ -38,11 +57,10 @@ class App extends React.Component<Props> {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>Список дел (ToDo лист) на React</p>
-
-          <Add tables={this.props.keeps}/>
+          <Add add={this.add}/>
 
           <div className="keeps">
-            {this.props.keeps?.map((e,index)=>
+            {this.state.keeps?.map((e,index)=>
                 <Table key={index} id={index} text={e.text} remove={this.remove}/>)}
 
             {/*  <Table text="заметка" id={1} remove={this.remove}/>

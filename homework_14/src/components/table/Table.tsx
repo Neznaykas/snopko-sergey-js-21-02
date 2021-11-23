@@ -1,6 +1,5 @@
 import React from 'react';
 import './Table.css';
-import {Keep} from "../../App";
 
 interface Props { // Объявление интерфейса пропсов
   id: number;
