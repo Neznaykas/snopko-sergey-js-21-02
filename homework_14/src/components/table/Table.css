@@ -5,10 +5,10 @@
     border-radius: 1px;
     border-color: #6e6e6e;
     margin: 5px;
-    padding: 15px;
+    padding: 0 0 5px 10px;
     box-shadow: 3px 3px 3px black;
     width: 200px;
-    height: 200px;
+    min-height: 200px;
 }
 
 .container__title
@@ -18,12 +18,19 @@
     justify-content: space-between;
 }
 
+.container__delete
+{
+    background: none;
+    border-style: none;
+}
+
 .container__delete img
 {
-    height: 3vmin;
+    height: 4vmin;
 }
 
 .container__item__text
 {
-    font-size: 1.25rem;
+    margin: 0;
+    font-size: 1.20rem;
 }
