@@ -10,12 +10,13 @@ export interface OwnerType {
     lastName?: string;
 }
 
-export interface CommentType {
+export interface UsersType {
     id?: string;
-    message?: string;
-    post?: string;
-    publishDate?: string;
+    title?: string;
+    firstName?: string;
+    lastName?: string;
+    picture?: string;
     owner?: OwnerType;
 }
 
-export interface PostListResponse extends ListResponseType<CommentType> {}
+export interface PostListResponse extends ListResponseType<UsersType> {}

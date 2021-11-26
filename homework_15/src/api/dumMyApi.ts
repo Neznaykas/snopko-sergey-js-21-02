@@ -1,12 +1,12 @@
 import {
     APP_ID_FIELD, APP_ID_VALUE, USERS_URL, LIMIT_FIELD, PAGE_FIELD,
 } from '../constants/dumMyApi';
-import { CommentType, PostListResponse } from '../types/dumMyApiResponses';
+import { UsersType, PostListResponse } from '../types/dumMyApiResponses';
 
 export const getUsersList = (
     page: number,
     limit: number,
-    callback: (resp: Array<CommentType>) => void,
+    callback: (resp: Array<UsersType>) => void,
     errorCallback?: (resp: any) => void,
 ) => fetch(USERS_URL, {
     method: 'GET',

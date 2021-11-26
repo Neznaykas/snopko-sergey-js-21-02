@@ -2,7 +2,8 @@ import './App.css';
 import React from 'react';
 import Users from './components/users/Users';
 import {getUsersList} from "./api/dumMyApi";
-import Theme from "./components/theme/Theme";
+import {Theme, ThemeContextState, ThemeContext} from "./components/theme/Theme";
+import ThemeCheckbox from "./components/form/themecheckbox/ThemeCheckbox";
 
 export interface save_data
 {
@@ -25,7 +26,9 @@ class App extends React.Component<Props, State> {
 
     this.state = {data: this.props.data}
 
-    console.log(getUsersList(1,10,function (data) { console.log(data)}))
+    getUsersList(1,10,function (data) { console.log(data)}).catch(function () {
+
+    })
   }
 
   remove(id:number)
@@ -52,17 +55,25 @@ class App extends React.Component<Props, State> {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h2>Пользователи</h2>
-          <div className="users">
-            {this.state.data?.map((e,index)=>
-                <Users key={index} id={index+1} text={e.text}/>)}
-          </div>
+          <ThemeContext>
+            <Theme.Consumer>
+            {
+              (context: Partial<ThemeContextState>) => (
+                  <div className={`App ${context.darkTheme && 'app__dark'}`}>
+                  <header className="App-header">
+                  <h2>Пользователи</h2>
 
-        </header>
-        <Theme/>
-      </div>
+                  <div className="users">
+                    {this.state.data?.map((e,index)=>
+                      <Users key={index} id={index+1} text={e.text}/>)}
+                  </div>
+                  <ThemeCheckbox/>
+                  </header>
+              </div>
+              )
+            }
+            </Theme.Consumer>
+          </ThemeContext>
     );
   }
 }

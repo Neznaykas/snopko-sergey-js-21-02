@@ -1,14 +1,28 @@
-import React, {Component} from 'react';
+import React, {ReactNode, useState} from 'react';
 
-class Theme extends Component {
-    render() {
-        return (
-            <div>
-                <input name="theme" type="checkbox"/>
-                <label>Тёмная тема</label>
-            </div>
-        );
-    }
+interface Props {
+    children: ReactNode;
 }
 
-export default Theme
+export interface ThemeContextState {
+    darkTheme: boolean;
+    toggleTheme: (value: boolean) => void;
+}
+
+const Theme = React.createContext<Partial<ThemeContextState>>({});
+
+const ThemeContext = function ({ children }: Props)
+{
+    const [darkTheme, setDarkTheme] = useState(localStorage.getItem('theme') === 'dark');
+
+    const toggleTheme = (value: boolean) => {
+        setDarkTheme(value);
+    }
+
+    return (
+            <Theme.Provider value={{ darkTheme, toggleTheme }}>
+                {children}
+            </Theme.Provider>
+        )
+}
+export {ThemeContext, Theme};
