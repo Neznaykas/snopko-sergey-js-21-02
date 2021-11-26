@@ -1,14 +1,6 @@
 import './App.css';
 import React from 'react';
-import { Table } from './components/table/Table';
-import { Add } from './components/add/Add';
-
-import logo from './logo.svg'
-
-/*  Разработка ToDo-листа (списка дел) на react.
-Предусмотреть минимальный функционал, т.е. у пользователя должна быть возможность добавлять и удалять записи.
-Записи должны сохраняться при перезагрузке страницы.
- */
+import Users from './components/users/Users';
 
 export interface Keep
 {
@@ -28,7 +20,6 @@ class App extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.remove = this.remove.bind(this);
-    this.add = this.add.bind(this)
 
     this.state = {keeps: this.props.keeps}
   }
@@ -44,7 +35,7 @@ class App extends React.Component<Props, State> {
     localStorage.setItem("text", JSON.stringify(this.state.keeps));
   }
 
-  add(keep: Keep)
+  /*add(keep: Keep)
   {
     this.state.keeps.push(keep)
 
@@ -53,22 +44,16 @@ class App extends React.Component<Props, State> {
     })
 
     localStorage.setItem("text", JSON.stringify(this.props.keeps));
-  }
+  }*/
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>Список дел (ToDo лист) на React</p>
-          <Add add={this.add}/>
-
-          <div className="keeps">
+          <h2>Пользователи</h2>
+          <div className="users">
             {this.state.keeps?.map((e,index)=>
-                <Table key={index} id={index+1} text={e.text} remove={this.remove}/>)}
-
-            {/*  <Table text="заметка" id={1} remove={this.remove}/>
-            <Table text="заметка2" id={2} remove={this.remove}/> */}
+                <Users key={index} id={index+1} text={e.text}/>)}
           </div>
 
         </header>
