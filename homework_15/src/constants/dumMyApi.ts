@@ -1,6 +1,6 @@
 const BASE_URL = 'https://dummyapi.io/data/v1/';
 
-export const COMMENT_URL = `${BASE_URL}comment`;
+export const USERS_URL = `${BASE_URL}user?limit=10`;
 
 export const APP_ID_VALUE = '617b11efbdaa719034cf6d83';
 

@@ -1,14 +1,14 @@
 import {
-    APP_ID_FIELD, APP_ID_VALUE, COMMENT_URL, LIMIT_FIELD, PAGE_FIELD,
+    APP_ID_FIELD, APP_ID_VALUE, USERS_URL, LIMIT_FIELD, PAGE_FIELD,
 } from '../constants/dumMyApi';
 import { CommentType, PostListResponse } from '../types/dumMyApiResponses';
 
-export const getCommentsList = (
+export const getUsersList = (
     page: number,
     limit: number,
     callback: (resp: Array<CommentType>) => void,
     errorCallback?: (resp: any) => void,
-) => fetch(COMMENT_URL, {
+) => fetch(USERS_URL, {
     method: 'GET',
     headers: new Headers({
         [APP_ID_FIELD]: APP_ID_VALUE,
