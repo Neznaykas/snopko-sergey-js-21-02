@@ -2,6 +2,18 @@
   text-align: center;
 }
 
+.app__dark
+{
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*justify-content: center;*/
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
 .App-logo {
   height: 8vmin;
   pointer-events: none;
@@ -14,17 +26,17 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: rgba(40, 44, 52, 0.27);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   /*justify-content: center;*/
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
-.keeps
+.users
 {
   display: flex;
   flex-direction: row;

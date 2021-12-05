@@ -25,10 +25,23 @@ class App extends React.Component<Props, State> {
     this.remove = this.remove.bind(this);
 
     this.state = {data: this.props.data}
+  }
+
+  componentDidMount() { // Выполняется третьим при монтировании
+    // Можем выполнять AJAX-запросы
+    // Не вызываем setState
 
     getUsersList(1,10,function (data) { console.log(data)}).catch(function () {
 
     })
+
+    console.log('Я смонтирован');
+  }
+
+  componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<State>): void { // Вызывается после перерисовки компонента (после монтирования не вызывается)
+    console.log('Я перерисовался');
+    // Делаем AJAX-запросы
+    // Не делаем setState
   }
 
   remove(id:number)
