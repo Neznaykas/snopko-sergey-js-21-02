@@ -31,8 +31,8 @@ class App extends React.Component<Props, State> {
 
     this.state = {data: [],
       page:0,
-      limit:20,
-      total:99,
+      limit: 20,
+      total: 99,
     }
   }
 
@@ -43,7 +43,7 @@ class App extends React.Component<Props, State> {
     //this.props.data = getUsersList();
     // let any: self = this;
 
-    getUsersList(3,10, (response) => {
+    getUsersList(1,15, (response) => {
 
       // self.props.data = data;
       this.setState({
@@ -78,17 +78,6 @@ class App extends React.Component<Props, State> {
     localStorage.setItem("text", JSON.stringify(this.state.data));
   }
 
-  /*add(keep: Keep)
-  {
-    this.state.keeps.push(keep)
-
-    this.setState({
-      keeps: this.state.keeps
-    })
-
-    localStorage.setItem("text", JSON.stringify(this.props.keeps));
-  }*/
-
   render() {
     return (
           <ThemeContext>
@@ -99,10 +88,7 @@ class App extends React.Component<Props, State> {
                   <header className="App-header">
                   <h2>Пользователи</h2>
 
-                  <div className="users">
-                    {this.state.data?.map((e,index)=>
-                      <Users key={index} id={index+1} text={e.firstName || ''} />)}
-                  </div>
+                  <Users darkTheme={context.darkTheme || false} ListUsers={this.state.data}  />
 
                   <ThemeCheckbox/>
                   </header>

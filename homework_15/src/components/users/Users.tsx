@@ -1,24 +1,27 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './Users.css';
-import {number, string} from "prop-types";
+import {UsersType} from "../../types/dumMyApiResponses";
+import User from "./user/User";
 
 interface Props { // Объявление интерфейса пропсов
-  id: number;
-  text: string;
+    darkTheme: boolean;
+    ListUsers: Array<UsersType>;
 }
 
 const Users = function (props: Props) {
-    const [id, text] = useState([{ id: number, text: string}]);
-
     return (
-            <section className="container__item">
-                <div className="container__title">
-                    <div className="container__title__id">{props.id}</div>
-                </div>
-                <div className="container__item__item">
-                    <p className="container__item__text">{ props.text != null ? props.text : 'ваш текст заметки' }</p>
-                </div>
-            </section>
+        <div className="users">
+            { props.ListUsers.map((e) => (
+                <User
+                    key={e.id}
+                    id={e.id}
+                    img={e.picture}
+                    img_alt={`${e.title}. ${e.firstName} ${e.lastName}`}
+                    name={`${e.title}. ${e.firstName} ${e.lastName}`}
+                    darkTheme={props.darkTheme ? props.darkTheme : false}
+                />
+            ))}
+        </div>
     )
 }
 
