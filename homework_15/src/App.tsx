@@ -4,6 +4,7 @@ import Users from './components/users/Users';
 import {getUsersList} from "./api/dumMyApi";
 import {Theme, ThemeContextState, ThemeContext} from "./components/theme/Theme";
 import ThemeCheckbox from "./components/form/themecheckbox/ThemeCheckbox";
+import {UsersType} from "./types/dumMyApiResponses";
 
 export interface save_data
 {
@@ -15,7 +16,10 @@ interface Props {
 }
 
 interface State {
-  data: save_data[];
+  page: number;
+  limit: number;
+  total:number;
+  data: Array<UsersType>;
 }
 
 class App extends React.Component<Props, State> {
@@ -23,17 +27,36 @@ class App extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.remove = this.remove.bind(this);
+    //this.pages = this.pages.bind(this);
 
-    this.state = {data: this.props.data}
+    this.state = {data: [],
+      page:0,
+      limit:20,
+      total:99,
+    }
   }
 
   componentDidMount() { // Выполняется третьим при монтировании
     // Можем выполнять AJAX-запросы
     // Не вызываем setState
 
-    getUsersList(1,10,function (data) { console.log(data)}).catch(function () {
+    //this.props.data = getUsersList();
+    // let any: self = this;
 
-    })
+    getUsersList(3,10, (response) => {
+
+      // self.props.data = data;
+      this.setState({
+        data: response.data,
+        limit: response.limit,
+        total: response.total,
+        page: response.page
+      })
+
+      console.log(response)
+
+    }).catch(function () {})
+
 
     console.log('Я смонтирован');
   }
@@ -78,8 +101,9 @@ class App extends React.Component<Props, State> {
 
                   <div className="users">
                     {this.state.data?.map((e,index)=>
-                      <Users key={index} id={index+1} text={e.text}/>)}
+                      <Users key={index} id={index+1} text={e.firstName || ''} />)}
                   </div>
+
                   <ThemeCheckbox/>
                   </header>
               </div>
