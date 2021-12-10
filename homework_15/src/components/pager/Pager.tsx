@@ -29,13 +29,11 @@ class Pager extends React.Component<Props, State> {
 
         return (
             <div className="pages">
-                    <div
-                        className={`page ${this.props.active ? 'page_active' : ''} ${this.props.darkTheme ? 'page_dark' : ''} ${
+                    <div className={`page ${this.props.active ? 'page_active' : ''} ${this.props.darkTheme ? 'page_dark' : ''} ${
                             this.props.darkTheme && this.props.active ? 'page_active_dark' : ''
                         }`}
                         data-page={this.props.page}
-                        onClick={this.handleSelectPage}
-                    >
+                        onClick={this.handleSelectPage} >
                         {this.props.page}
                     </div>
         </div>

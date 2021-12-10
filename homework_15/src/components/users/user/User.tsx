@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 
 import './User.css';
+import Hint from "../hint/Hint";
 
 interface State {}
 
@@ -19,8 +20,9 @@ class User extends React.Component<Props, State> {
                 <div className={`user__img_wrapper ${this.props.darkTheme ? 'user__img_wrapper_dark' : ''}`}>
                     <img className="user__img" src={this.props.img} alt={this.props.img_alt} />
                 </div>
-                <div className="user__user_name">{this.props.name}
-                </div>
+                <Hint text={this.props.id || ''}>
+                    <div className="user__user_name">{this.props.name}</div>
+                </Hint>
             </div>
         );
     }

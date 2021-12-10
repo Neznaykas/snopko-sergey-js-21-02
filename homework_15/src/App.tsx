@@ -27,12 +27,11 @@ class App extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.remove = this.remove.bind(this);
     this.setNewPage = this.setNewPage.bind(this);
 
     this.state = {data: [],
       page:0,
-      limit: 20,
+      limit: 15,
       total: 99,
     }
   }
@@ -40,9 +39,9 @@ class App extends React.Component<Props, State> {
   componentDidMount() { // Выполняется третьим при монтировании
     // Можем выполнять AJAX-запросы
     // Не вызываем setState
+    //localStorage.setItem("text", JSON.stringify(this.state.data));
 
-    getUsersList(this.state.page,15, (response) => {
-
+    getUsersList(this.state.page,this.state.limit, (response) => {
       this.setState({
         data: response.data,
         limit: response.limit,
@@ -51,10 +50,7 @@ class App extends React.Component<Props, State> {
       })
 
       console.log(response)
-
     }).catch(function () {})
-
-    //console.log('Я смонтирован');
   }
 
   componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<State>): void { // Вызывается после перерисовки компонента (после монтирования не вызывается)
@@ -63,22 +59,11 @@ class App extends React.Component<Props, State> {
     // Не делаем setState
   }
 
-  remove (id:number)
-  {
-    this.state.data.splice(id, 1);
-
-    this.setState({
-      data: this.state.data
-    })
-
-    localStorage.setItem("text", JSON.stringify(this.state.data));
-  }
-
   setNewPage(page: number): void
   {
    // this.setState({ page: page });
 
-    getUsersList(page,15, (response) => {
+    getUsersList(page,this.state.limit, (response) => {
 
       this.setState({
         data: response.data,
