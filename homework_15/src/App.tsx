@@ -5,6 +5,7 @@ import {getUsersList} from "./api/dumMyApi";
 import {Theme, ThemeContextState, ThemeContext} from "./components/theme/Theme";
 import ThemeCheckbox from "./components/form/themecheckbox/ThemeCheckbox";
 import {UsersType} from "./types/dumMyApiResponses";
+import Pager from "./components/pager/Pager";
 
 export interface save_data
 {
@@ -27,7 +28,7 @@ class App extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.remove = this.remove.bind(this);
-    //this.pages = this.pages.bind(this);
+    this.setNewPage = this.setNewPage.bind(this);
 
     this.state = {data: [],
       page:0,
@@ -40,12 +41,8 @@ class App extends React.Component<Props, State> {
     // Можем выполнять AJAX-запросы
     // Не вызываем setState
 
-    //this.props.data = getUsersList();
-    // let any: self = this;
+    getUsersList(this.state.page,15, (response) => {
 
-    getUsersList(1,15, (response) => {
-
-      // self.props.data = data;
       this.setState({
         data: response.data,
         limit: response.limit,
@@ -57,17 +54,16 @@ class App extends React.Component<Props, State> {
 
     }).catch(function () {})
 
-
-    console.log('Я смонтирован');
+    //console.log('Я смонтирован');
   }
 
   componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<State>): void { // Вызывается после перерисовки компонента (после монтирования не вызывается)
-    console.log('Я перерисовался');
+    //console.log('Я перерисовался');
     // Делаем AJAX-запросы
     // Не делаем setState
   }
 
-  remove(id:number)
+  remove (id:number)
   {
     this.state.data.splice(id, 1);
 
@@ -78,7 +74,34 @@ class App extends React.Component<Props, State> {
     localStorage.setItem("text", JSON.stringify(this.state.data));
   }
 
+  setNewPage(page: number): void
+  {
+   // this.setState({ page: page });
+
+    getUsersList(page,15, (response) => {
+
+      this.setState({
+        data: response.data,
+        limit: response.limit,
+        total: response.total,
+        page: response.page
+      })
+      console.log(response)
+    }).catch(function () {})
+  }
+
   render() {
+
+    const AllPages: Array<number> = [];
+
+    for (let i = 1; i <= (this.state.total + 1) / this.state.limit; i += 1) {
+      AllPages.push(i);
+    }
+
+    if ((this.state.total + 1) % this.state.limit > 0) {
+      AllPages.push(AllPages.length + 1);
+    }
+
     return (
           <ThemeContext>
             <Theme.Consumer>
@@ -90,7 +113,14 @@ class App extends React.Component<Props, State> {
 
                   <Users darkTheme={context.darkTheme || false} ListUsers={this.state.data}  />
 
-                  <ThemeCheckbox/>
+                   <div className="paginator">
+                      {AllPages.map((e) => (
+                        <Pager darkTheme={context.darkTheme || false} page={e} limit={this.state.limit} total={this.state.total} key={e}
+                          setNewPage={this.setNewPage} active={e === this.state.page + 1} />
+                      ))}
+                  </div>
+
+                    <ThemeCheckbox/>
                   </header>
               </div>
               )

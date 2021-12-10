@@ -48,3 +48,10 @@
     transform: rotate(360deg);
   }
 }
+
+.paginator
+{
+  display: flex;
+  flex-direction: row;
+}
+
