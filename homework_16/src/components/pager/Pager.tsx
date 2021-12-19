@@ -1,8 +1,6 @@
-import React, {ReactNode, SyntheticEvent} from 'react';
+import React, {SyntheticEvent} from 'react';
 
 import './Pager.css';
-
-interface State {}
 
 interface Props {
     darkTheme: boolean;
@@ -13,32 +11,24 @@ interface Props {
     active?: boolean;
 }
 
-class Pager extends React.Component<Props, State> {
+const Pager = function (props: Props) {
 
-    constructor(props: Props) {
-        super(props);
-        this.handleSelectPage = this.handleSelectPage.bind(this);
-    }
-
-    handleSelectPage(e: SyntheticEvent): void {
+    function handleSelectPage(e: SyntheticEvent): void {
         const page = Number(e.currentTarget.getAttribute('data-page')) - 1;
-        this.props.setNewPage(page);
+        props.setNewPage(page);
     }
 
-    render(): ReactNode {
-
-        return (
+    return (
             <div className="pages">
-                    <div className={`page ${this.props.active ? 'page_active' : ''} ${this.props.darkTheme ? 'page_dark' : ''} ${
-                            this.props.darkTheme && this.props.active ? 'page_active_dark' : ''
+                    <div className={`page ${props.active ? 'page_active' : ''} ${props.darkTheme ? 'page_dark' : ''} ${
+                            props.darkTheme && props.active ? 'page_active_dark' : ''
                         }`}
-                        data-page={this.props.page}
-                        onClick={this.handleSelectPage} >
-                        {this.props.page}
+                        data-page={props.page}
+                        onClick={handleSelectPage} >
+                        {props.page}
                     </div>
         </div>
     );
-    }
 }
 
 export default Pager;

@@ -1,9 +1,7 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 import './User.css';
 import Hint from "../hint/Hint";
-
-interface State {}
 
 interface Props {
     darkTheme: boolean;
@@ -13,19 +11,17 @@ interface Props {
     id?: string;
 }
 
-class User extends React.Component<Props, State> {
-    render(): ReactNode {
+const User = function (props: Props) {
         return (
-            <div className={`user ${this.props.darkTheme ? 'user_dark' : ''}`}>
-                <div className={`user__img_wrapper ${this.props.darkTheme ? 'user__img_wrapper_dark' : ''}`}>
-                    <img className="user__img" src={this.props.img} alt={this.props.img_alt} />
+            <div className={`user ${props.darkTheme ? 'user_dark' : ''}`}>
+                <div className={`user__img_wrapper ${props.darkTheme ? 'user__img_wrapper_dark' : ''}`}>
+                    <img className="user__img" src={props.img} alt={props.img_alt} />
                 </div>
-                <Hint text={this.props.id || ''}>
-                    <div className="user__user_name">{this.props.name}</div>
+                <Hint text={props.id || ''}>
+                    <div className="user__user_name">{props.name}</div>
                 </Hint>
             </div>
-        );
-    }
+        )
 }
 
 export default User;
