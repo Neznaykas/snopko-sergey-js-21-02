@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from "react";
 
 import {Theme} from "../theme/Theme";
 import Users from "../users/Users";
-import Pager from "../pager/Pager";
+import Pager from "./pager/Pager";
 import {getUsersList} from "../../api/dumMyApi";
 import {UsersType} from "../../types/dumMyApiResponses";
 
@@ -19,7 +19,7 @@ const Main = () => {
     const [state, setState]= useState<State>({
         data: [],
         page:0,
-        limit: 12,
+        limit: 6,
         total: 99,
     });
 
@@ -52,7 +52,8 @@ const Main = () => {
     }
 
     return (
-        <><h2>Пользователи</h2><Users darkTheme={context.darkTheme || false} ListUsers={state.data}/>
+        <div>
+            <Users darkTheme={context.darkTheme || false} ListUsers={state.data}/>
             <div className="paginator">
                 {AllPages.map((e) => (
                     <Pager darkTheme={context.darkTheme || false} page={e} limit={state.limit} total={state.total}
@@ -60,7 +61,7 @@ const Main = () => {
                            setNewPage={setNewPage} active={e === state.page + 1}/>
                 ))}
             </div>
-        </>
+        </div>
     );
 };
 
