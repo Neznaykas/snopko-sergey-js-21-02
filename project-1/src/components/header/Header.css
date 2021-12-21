@@ -1,0 +1,14 @@
+.header{
+//padding: 0 1rem;
+    background-color: #3b3b3b;
+    border-radius: 0.1rem;
+    display: flex;
+}
+
+.header_dark{
+    background-color: #3b3b3b;
+}
+
+.header__menu{
+    padding-left: 1rem ;
+}

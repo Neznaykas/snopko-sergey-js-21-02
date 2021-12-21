@@ -1,10 +1,13 @@
-.user{
+.user {
     background-color: #FFFFFF;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+    padding: 1rem 1.5rem;
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
 }
 
 .user_dark{
@@ -12,21 +15,35 @@
 }
 
 .user__img_wrapper{
-    width: 100px;
-    height: 100px;
+    width: 220px;
+    height: 220px;
     overflow: hidden;
     border: 1px #C2C2C2 dotted;
     border-radius: 0.1rem;
+}
+
+.img
+{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
 .user__img_wrapper_dark{
     border: 1px #606060 dotted;
 }
 
-.user__img{
+.user__img {
     object-fit: cover;
     width: 100%;
     height: 100%;
+
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border: 1px #C2C2C2 dotted;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
 .user__user_name{
@@ -35,14 +52,14 @@
 }
 
 @media (min-width: 576px) {
-    .user{
+    .user {
         width: calc(50% - 1.25rem);
     }
 }
 
 @media (min-width: 992px) {
     .user{
-        width: calc(1/3*100% - (3 - 1/3)*0.5rem);
+        width: calc(1/4*100% - (3 - 1/4)*0.5rem);
     }
     .user:not(:nth-of-type(3n)){
         margin-right: 0.5rem;
