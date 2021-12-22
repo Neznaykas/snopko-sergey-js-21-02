@@ -6,6 +6,9 @@ import Pager from "./pager/Pager";
 import {getUsersList} from "../../api/dumMyApi";
 import {UsersType} from "../../types/dumMyApiResponses";
 
+import 'antd/dist/antd.css';
+import { Pagination } from 'antd';
+
 interface State {
     page: number;
     limit: number;
@@ -54,13 +57,14 @@ const Main = () => {
     return (
         <div>
             <Users darkTheme={context.darkTheme || false} ListUsers={state.data}/>
-            <div className="paginator">
+            {/* <div className="paginator">
                 {AllPages.map((e) => (
                     <Pager darkTheme={context.darkTheme || false} page={e} limit={state.limit} total={state.total}
                            key={e}
                            setNewPage={setNewPage} active={e === state.page + 1}/>
                 ))}
-            </div>
+            </div> */}
+            <Pagination defaultCurrent={1} current={state.page} onChange={setNewPage}  total={state.total} /> {/* theme={context.darkTheme ? "dark" : "light"} */}
         </div>
     );
 };
