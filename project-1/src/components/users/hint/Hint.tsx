@@ -1,6 +1,6 @@
 import React, {ReactNode, SyntheticEvent, useState} from 'react';
 
-import './Hint.css';
+import './Hint.scss';
 
 interface Props {
     children: ReactNode;

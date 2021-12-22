@@ -1,5 +1,5 @@
 import React from 'react';
-import './Users.css';
+import './Users.scss';
 import {UsersType} from "../../types/dumMyApiResponses";
 import User from "./user/User";
 

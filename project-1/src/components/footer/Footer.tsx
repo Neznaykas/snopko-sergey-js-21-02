@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import "./Footer.css";
+import "./Footer.scss";
 import {Theme} from "../theme/Theme";
 import ThemeCheckbox from "./themecheckbox/ThemeCheckbox";
 

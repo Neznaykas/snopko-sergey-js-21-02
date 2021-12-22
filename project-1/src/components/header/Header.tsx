@@ -1,6 +1,6 @@
 import React, {ReactElement, useContext} from 'react';
 
-import './Header.css';
+import './Header.scss';
 import {Theme} from "../theme/Theme";
 import Logo from "./logo/Logo";
 

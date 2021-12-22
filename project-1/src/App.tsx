@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import React from 'react';
 import {Theme, ThemeContextState, ThemeContext} from "./components/theme/Theme";
 import Header from "./components/header/Header";

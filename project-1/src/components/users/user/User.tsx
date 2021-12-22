@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './User.css';
+import './User.scss';
 import Hint from "../hint/Hint";
 
 interface Props {

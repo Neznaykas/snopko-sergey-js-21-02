@@ -1,6 +1,6 @@
 import React, {SyntheticEvent} from 'react';
 
-import './Pager.css';
+import './Pager.scss';
 
 interface Props {
     darkTheme: boolean;

@@ -2,7 +2,7 @@ import React, { ReactElement, useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import {Theme} from "../../theme/Theme";
-import "./Logo.css";
+import "./Logo.scss";
 
 const Logo = (): ReactElement => {
     const themeContext = useContext(Theme);
