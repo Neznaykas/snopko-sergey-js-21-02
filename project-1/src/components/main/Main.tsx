@@ -52,7 +52,7 @@ const Main = () => {
         }).catch(function () {})
     }
 
-    const AllPages: Array<number> = [];
+    /*const AllPages: Array<number> = [];
 
     for (let i = 1; i <= (state.total + 1) / state.limit; i += 1) {
         AllPages.push(i);
@@ -60,7 +60,7 @@ const Main = () => {
 
     if ((state.total + 1) % state.limit > 0) {
         AllPages.push(AllPages.length + 1);
-    }
+    }*/
 
     return (
         <div>
