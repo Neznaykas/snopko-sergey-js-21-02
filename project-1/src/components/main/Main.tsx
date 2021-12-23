@@ -7,6 +7,8 @@ import {getUsersList} from "../../api/dumMyApi";
 import {UsersType} from "../../types/dumMyApiResponses";
 
 import 'antd/dist/antd.css';
+import './Main.scss'
+
 import { Pagination } from 'antd';
 import { Spin, Space } from 'antd';
 
@@ -62,7 +64,9 @@ const Main = () => {
 
     return (
         <div>
-            <Users darkTheme={context.darkTheme || false} ListUsers={state.data}/>
+            <Spin className={"spinner"} spinning={!state.load} delay={100} tip="Загрузка...">
+                <Users darkTheme={context.darkTheme || false} ListUsers={state.data}/>
+            </Spin>
             {/* <div className="paginator">
                 {AllPages.map((e) => (
                     <Pager darkTheme={context.darkTheme || false} page={e} limit={state.limit} total={state.total}
@@ -70,10 +74,6 @@ const Main = () => {
                            setNewPage={setNewPage} active={e === state.page + 1}/>
                 ))}
             </div> */}
-            { !state.load &&
-            <Space size="middle">
-                <Spin size="large" />
-            </Space>}
             <Pagination defaultCurrent={1} current={state.page} onChange={setNewPage}  total={state.total} /> {/* theme={context.darkTheme ? "dark" : "light"} */}
         </div>
     );
