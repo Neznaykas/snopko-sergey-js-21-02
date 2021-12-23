@@ -10,7 +10,7 @@ import 'antd/dist/antd.css';
 import './Main.scss'
 
 import { Pagination } from 'antd';
-import { Spin, Space } from 'antd';
+import { Spin } from 'antd';
 
 interface State {
     page: number;
@@ -63,7 +63,7 @@ const Main = () => {
     }*/
 
     return (
-        <div>
+        <div className={"users__wrapper"}>
             <Spin className={"spinner"} spinning={!state.load} delay={100} tip="Загрузка...">
                 <Users darkTheme={context.darkTheme || false} ListUsers={state.data}/>
             </Spin>
