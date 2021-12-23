@@ -8,12 +8,14 @@ import {UsersType} from "../../types/dumMyApiResponses";
 
 import 'antd/dist/antd.css';
 import { Pagination } from 'antd';
+import { Spin, Space } from 'antd';
 
 interface State {
     page: number;
     limit: number;
     total:number;
     data: Array<UsersType>;
+    load: boolean
 }
 
 const Main = () => {
@@ -21,9 +23,10 @@ const Main = () => {
 
     const [state, setState]= useState<State>({
         data: [],
-        page:0,
+        page: 1,
         limit: 6,
         total: 99,
+        load: false,
     });
 
     useEffect(() => {
@@ -32,13 +35,16 @@ const Main = () => {
 
     const setNewPage = (page: number) =>
     {
+        setState({...state,load:false});
+
         getUsersList(page, state.limit, (response) => {
 
             setState({
                 data: response.data,
                 limit: response.limit,
                 total: response.total,
-                page: response.page
+                page: response.page,
+                load: true
             })
             console.log(response)
         }).catch(function () {})
@@ -64,6 +70,10 @@ const Main = () => {
                            setNewPage={setNewPage} active={e === state.page + 1}/>
                 ))}
             </div> */}
+            { !state.load &&
+            <Space size="middle">
+                <Spin size="large" />
+            </Space>}
             <Pagination defaultCurrent={1} current={state.page} onChange={setNewPage}  total={state.total} /> {/* theme={context.darkTheme ? "dark" : "light"} */}
         </div>
     );

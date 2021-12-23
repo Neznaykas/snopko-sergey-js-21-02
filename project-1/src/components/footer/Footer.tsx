@@ -8,8 +8,10 @@ const Footer = () => {
     const themeContext = useContext(Theme);
     return (
         <footer className={`footer ${themeContext.darkTheme ? "footer_dark" : ""}`}>
-            <div className="footer__copyright">&copy; 2021  Снопко С.И.</div>
-            <ThemeCheckbox />
+            <div className="footer__content">
+                <div className="footer__copyright">&copy; 2021  Снопко С.И.</div>
+                <ThemeCheckbox />
+            </div>
         </footer>
     );
 };

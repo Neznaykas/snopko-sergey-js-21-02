@@ -10,14 +10,15 @@ const Header = (): ReactElement => {
 
     return (
         <header className={`header ${themeContext.darkTheme ? "header_dark" : ""}`}>
-            <div className="header__logo">
-                <Logo/>
-            </div>
-            <div className="header__menu">
-              <Menu/>
-            </div>
-            <div className="header__user_menu">
-
+            <div className="header__content">
+                <div className="header__logo">
+                    <Logo/>
+                </div>
+                <div className="header__menu">
+                  <Menu/>
+                </div>
+                <div className="header__user_menu">
+                </div>
             </div>
         </header>
     );
