@@ -1,0 +1,32 @@
+.users {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+}
+
+.container__item
+{
+    background: #4a4e57;
+    border-style: solid;
+    border-radius: 1px;
+    border-color: #6e6e6e;
+    margin: 5px;
+    padding: 0 0 5px 10px;
+    box-shadow: 3px 3px 3px black;
+    width: 100px;
+    min-height: 100px;
+}
+
+.container__title
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container__item__text
+{
+    margin: 0;
+    font-size: 1.20rem;
+}

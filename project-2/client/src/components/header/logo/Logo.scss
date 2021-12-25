@@ -1,0 +1,44 @@
+.logo {
+    display: flex;
+    align-items: center;
+    animation: App-logo-spin infinite alternate 5s linear;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(-2deg);
+    }
+    to {
+        transform: rotate(5deg);
+    }
+}
+
+.header__menu{
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.logo__img_wrapper
+{
+    width: 5.2rem;
+    height: 3.2rem;
+    overflow: hidden;
+    border-radius: 1rem;
+    margin: 0.3rem 0.3rem 0.3rem 0.5rem;
+}
+
+.logo__img{
+    width: 100%;
+    height: auto;
+}
+
+.logo__text{
+    padding-left: 0.5rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #cecece;
+}
+
+.logo__text_dark{
+    color: #282c35;
+}
