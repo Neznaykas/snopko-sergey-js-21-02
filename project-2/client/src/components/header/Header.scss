@@ -1,12 +1,18 @@
 .header
 {
-    background-color: #9f9f9f;
+    background-color: #ffffff;
     border-radius: 0.1rem;
+}
+
+.header__content
+{
     display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .header_dark {
-    background-color: #3b3b3b;
+    background-color: #001529;
 }
 
 .header__menu{

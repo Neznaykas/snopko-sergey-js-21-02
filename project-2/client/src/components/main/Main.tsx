@@ -7,13 +7,17 @@ import {getUsersList} from "../../api/dumMyApi";
 import {UsersType} from "../../types/dumMyApiResponses";
 
 import 'antd/dist/antd.css';
+import './Main.scss'
+
 import { Pagination } from 'antd';
+import { Spin } from 'antd';
 
 interface State {
     page: number;
     limit: number;
     total:number;
     data: Array<UsersType>;
+    load: boolean
 }
 
 const Main = () => {
@@ -21,9 +25,10 @@ const Main = () => {
 
     const [state, setState]= useState<State>({
         data: [],
-        page:0,
+        page: 1,
         limit: 6,
         total: 99,
+        load: false,
     });
 
     useEffect(() => {
@@ -32,19 +37,22 @@ const Main = () => {
 
     const setNewPage = (page: number) =>
     {
+        setState({...state,load:false});
+
         getUsersList(page, state.limit, (response) => {
 
             setState({
                 data: response.data,
                 limit: response.limit,
                 total: response.total,
-                page: response.page
+                page: response.page,
+                load: true
             })
             console.log(response)
         }).catch(function () {})
     }
 
-    const AllPages: Array<number> = [];
+    /*const AllPages: Array<number> = [];
 
     for (let i = 1; i <= (state.total + 1) / state.limit; i += 1) {
         AllPages.push(i);
@@ -52,11 +60,13 @@ const Main = () => {
 
     if ((state.total + 1) % state.limit > 0) {
         AllPages.push(AllPages.length + 1);
-    }
+    }*/
 
     return (
-        <div>
-            <Users darkTheme={context.darkTheme || false} ListUsers={state.data}/>
+        <div className={"users__wrapper"}>
+            <Spin className={"spinner"} spinning={!state.load} delay={100} tip="Загрузка...">
+                <Users darkTheme={context.darkTheme || false} ListUsers={state.data}/>
+            </Spin>
             {/* <div className="paginator">
                 {AllPages.map((e) => (
                     <Pager darkTheme={context.darkTheme || false} page={e} limit={state.limit} total={state.total}

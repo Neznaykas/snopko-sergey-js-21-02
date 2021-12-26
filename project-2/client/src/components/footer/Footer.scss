@@ -2,11 +2,19 @@
     padding: 1rem;
     background-color: #FFFFFF;
     border-radius: 0.1rem;
+}
+
+.footer__content
+{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
+
 .footer_dark{
-    background-color: #383838;
+    background-color: #001529;
+    color: #6e6e6e;
 }
