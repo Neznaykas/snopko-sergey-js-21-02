@@ -1,6 +1,7 @@
 const format = require('string-format');
 const logger = require('../logger/logger');
 const { postService: messages } = require('../constants/logger');
+const {getPostsList} = require("../dist/api/dumMyApi");
 
 class postService {
     // Здесь происходит запросы и обработки данных, валидация запроса и и.д.
@@ -19,6 +20,11 @@ class postService {
             res.status(490).send('Не верные входящие параметры. limit может быть в пределах от 5 до 50');
         }
 
+        return getPostsList(res.params.page, res.params.limit,(response) =>
+        {
+            logger.info(format(messages.GET_LIST_SUCCESS, JSON.stringify(req.params)));
+            res.status(200).send(response);
+        });
     }
 }
 

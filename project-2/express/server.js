@@ -30,7 +30,7 @@ app.use((err, req, res, next) => {
   next();
 });
 
-app.route('/')
+/*app.route('/')
   .get((req, res) => {
     res
       // .sendStatus(405) // Отправить пустой ответ с указанным статусом
@@ -87,6 +87,6 @@ app.get('/fetch', (req, res) => {
     .then(response => response.text())
     .then(apiResp => res.status(200).send(apiResp))
     .catch(error => res.status(500).send('third-party api error'))
-})
+})*/
 
 app.listen(port, host, () => console.log(`Server started at http://${host}:${port}`))

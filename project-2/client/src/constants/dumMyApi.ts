@@ -1,4 +1,4 @@
-const BASE_URL = 'https://dummyapi.io/data/v1/';
+const BASE_URL = 'http://127.0.0.1:3000/';
 
 export const USERS_URL = `${BASE_URL}user/`;
 
