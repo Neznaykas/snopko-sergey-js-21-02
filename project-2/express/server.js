@@ -1,6 +1,10 @@
 const express = require('express')
-const app = express()
 const fetch = require('node-fetch')
+
+const logger = require('./logger/logger');
+const router = require('./routes/index');
+
+const app = express()
 
 const host = '127.0.0.1'
 const port = 3000
@@ -16,6 +20,15 @@ app.use((req, res, next) => {
     .set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
   next() // Если не вызвпать то запрос не пройдёт дальше
 })
+
+app.use('/api', router);
+
+app.use((err, req, res, next) => {
+  console.log(err);
+  logger.fatal(err);
+  //res.status(500).send(err.toString());
+  next();
+});
 
 app.route('/')
   .get((req, res) => {
@@ -75,4 +88,5 @@ app.get('/fetch', (req, res) => {
     .then(apiResp => res.status(200).send(apiResp))
     .catch(error => res.status(500).send('third-party api error'))
 })
+
 app.listen(port, host, () => console.log(`Server started at http://${host}:${port}`))
