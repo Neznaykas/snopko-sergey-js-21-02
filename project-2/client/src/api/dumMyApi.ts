@@ -9,13 +9,8 @@ export const getUsersList = (
     limit: number,
     callback: (resp: PostListResponse) => void,
     errorCallback?: (resp: any) => void,
-) => fetch(USERS_URL + '?' + [PAGE_FIELD] + '=' + page.toString() + '&' + [LIMIT_FIELD] + '=' + limit.toString(), {
+) => fetch(USERS_URL + page.toString() + '/' + limit.toString(), {
     method: 'GET',
-    headers: new Headers({
-        [APP_ID_FIELD]: APP_ID_VALUE,
-        //[PAGE_FIELD]: page.toString(),
-        //[LIMIT_FIELD]: limit.toString(),
-    }),
 }).then((response) => response.json())
     .then((response: PostListResponse) => callback(response))
     .catch(errorCallback);
@@ -25,13 +20,8 @@ export const getPostsList = (
     limit: number,
    //callback: (resp: PostsListResponse) => void,
     //errorCallback?: (resp: any) => void,
-) => fetch(POSTS_URL + '?' + [PAGE_FIELD] + '=' + page.toString() + '&' + [LIMIT_FIELD] + '=' + limit.toString(), {
+) => fetch(POSTS_URL + page.toString() + '/' + limit.toString(), {
     method: 'GET',
-    headers: new Headers({
-        [APP_ID_FIELD]: APP_ID_VALUE,
-        //[PAGE_FIELD]: page.toString(),
-        //[LIMIT_FIELD]: limit.toString(),
-    }),
 }).then((response) => response.json())
     //.then((response: PostsListResponse) => callback(response))
     //.catch(errorCallback);

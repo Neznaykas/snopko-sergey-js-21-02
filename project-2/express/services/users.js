@@ -6,24 +6,24 @@ const {getUsersList} = require("../dist/api/dumMyApi");
 class UserService {
     // Здесь происходит запросы и обработки данных, валидация запроса и и.д.
 
-    list(req, res) {
-        logger.info(format(messages.GET_LIST_PARAMS, JSON.stringify(req.params)));
+    list(request, resp) {
+        logger.info(format(messages.GET_LIST_PARAMS, JSON.stringify(request.params)));
 
-        if (Number.isNaN(Number(req.params.page)) || Number.isNaN(Number(req.params.limit))) {
-            res.status(490).send('Не верные входящие параметры page или limit');
+        if (Number.isNaN(Number(request.params.page)) || Number.isNaN(Number(request.params.limit))) {
+            resp.status(490).send('Не верные входящие параметры page или limit');
             // после отправки ответа, код продолжает выполнятся... что есть плохо!
         }
-        if (req.params.page < 0) {
-            res.status(490).send('Не верные входящие параметры. page меньше 0');
+        if (request.params.page < 0) {
+            resp.status(490).send('Не верные входящие параметры. page меньше 0');
         }
-        if (req.params.limit < 5 || req.params.limit > 50) {
-            res.status(490).send('Не верные входящие параметры. limit может быть в пределах от 5 до 50');
+        if (request.params.limit < 5 || request.params.limit > 50) {
+            resp.status(490).send('Не верные входящие параметры. limit может быть в пределах от 5 до 50');
         }
 
-        return getUsersList(res.params.page, res.params.limit,(response) =>
+        getUsersList(Number(request.params.page), Number(request.params.limit),(response) =>
         {
-            logger.info(format(messages.GET_LIST_SUCCESS, JSON.stringify(req.params)));
-            res.status(200).send(response);
+            logger.info(format(messages.GET_LIST_SUCCESS, JSON.stringify(request.params)));
+            resp.status(200).send(response);
         });
     }
 }

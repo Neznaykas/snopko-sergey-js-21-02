@@ -3,6 +3,7 @@ import {
 } from '../constants/dumMyApi';
 
 import {PostListResponse, PostsListResponse} from '../types/dumMyApiResponses';
+
 export const getUsersList = (
     page: number,
     limit: number,
@@ -22,8 +23,8 @@ export const getUsersList = (
 export const getPostsList = (
     page: number,
     limit: number,
-    //callback: (resp: PostsListResponse) => void,
-    //errorCallback?: (resp: any) => void,
+    callback: (resp: PostsListResponse) => void,
+    errorCallback?: (resp: any) => void,
 ) => fetch(POSTS_URL + '?' + [PAGE_FIELD] + '=' + page.toString() + '&' + [LIMIT_FIELD] + '=' + limit.toString(), {
     method: 'GET',
     headers: new Headers({
@@ -32,5 +33,5 @@ export const getPostsList = (
         //[LIMIT_FIELD]: limit.toString(),
     }),
 }).then((response) => response.json())
-//.then((response: PostsListResponse) => callback(response))
-//.catch(errorCallback);
+.then((response: PostsListResponse) => callback(response))
+.catch(errorCallback);

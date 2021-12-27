@@ -1,5 +1,7 @@
 const express = require('express')
-const fetch = require('node-fetch')
+//const fetch = require('node-fetch')
+const context = require('request-context');
+const { v4: generateUUID } = require('uuid');
 
 const logger = require('./logger/logger');
 const router = require('./routes/index');
@@ -9,8 +11,11 @@ const app = express()
 const host = '127.0.0.1'
 const port = 3000
 
+app.use(context.middleware('request'))
 app.use(express.json()) // Необходимо для парсинга body в соответствуюзих запросах в формате JSON
+
 app.use((req, res, next) => {
+  context.set('uuid', generateUUID());
   res.type('text/plain') // Установка заголовка type
     .set( // Установка заголовка
       'Access-Control-Allow-Origin', // Заголовок
